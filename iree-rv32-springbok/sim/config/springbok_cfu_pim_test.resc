@@ -1,0 +1,53 @@
+# Copyright 2022 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http:#www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Renode script for testing the Springbok Vector Core
+
+mach create "springbok"
+
+EnsureTypeIsLoaded "Antmicro.Renode.Peripherals.CPU.RiscV32"
+include @/home/jueun/park/IREE/iree-rv32-springbok-legacy/sim/config/infrastructure/SpringbokRiscV32.cs
+# include @/home/jueun/park/renode/renode/src/Plugins/VerilatorPlugin/Verilated/Peripherals/CFUVerilatedPeripheral.cs
+
+#$platformfile?=@sim/config/platforms/springbok.repl
+# $platformfile?=@sim/config/platforms/springbok_cfu_pim_test.repl
+$platformfile?=@/home/jueun/park/IREE/iree-rv32-springbok-legacy/sim/config/platforms/springbok_cfu_pim_test.repl
+
+machine LoadPlatformDescription $platformfile
+
+# $bin?=@build/build-riscv/samples/simple_vec_mul/simple_int_vec_mul_emitc_static
+$bin?=@https://dl.antmicro.com/projects/renode/verilated-cfu-test-software.elf-s_10742536-04c41fb55c3011b440a3e6eb955756268f28c151
+# $bin?=@/home/jueun/park/IREE/iree-rv32-springbok/build/build-riscv/samples/ecg_small/ecg_small_fp32_emitc_static
+$cfuPim?=@/home/jueun/park/renode/baremetal-riscv-renode/renode-verilator-integration/samples/cfu_test/build_test/libVtop.so
+
+showAnalyzer sysbus.uart
+
+sysbus.cpu2.pim_cfu0 SimulationFilePath $cfuPim
+
+macro reset
+"""
+    sysbus LoadELF $bin
+    # Start the vector core at address 0 of its instruction TCM.
+    sysbus.cpu2 IsHalted true
+    sysbus.cpu2 PC 0x32000000
+"""
+runMacro $reset
+
+sysbus.vec_controlblock SetMacOutValue 42
+# sysbus.cpu2.pim_cfu0 SetCFUMacOutValue 20
+
+start
+
+echo "Resc file echo test!"
+

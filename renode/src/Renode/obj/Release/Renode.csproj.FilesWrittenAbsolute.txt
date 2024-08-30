@@ -1,0 +1,10 @@
+/home/jueun/park/renode/renode/src/Renode/obj/Release/.NETFramework,Version=v4.6.2.AssemblyAttribute.cs
+/home/jueun/park/renode/renode/src/Renode/obj/Release/Antmicro.Renode.Resources.renode_nobg.ico
+/home/jueun/park/renode/renode/src/Renode/obj/Release/Antmicro.Renode.Resources.logo.png
+/home/jueun/park/renode/renode/src/Renode/obj/Release/Antmicro.Renode.Resources.RobotoMono-Regular.ttf
+/home/jueun/park/renode/renode/output/bin/Release/Xwt.Gtk.dll.config
+/home/jueun/park/renode/renode/output/bin/Release/IronPython.StdLib.dll
+/home/jueun/park/renode/renode/output/bin/Release/Renode.pdb
+/home/jueun/park/renode/renode/output/bin/Release/Renode.exe
+/home/jueun/park/renode/renode/src/Renode/obj/Release/Renode.exe
+/home/jueun/park/renode/renode/src/Renode/obj/Release/Renode.pdb

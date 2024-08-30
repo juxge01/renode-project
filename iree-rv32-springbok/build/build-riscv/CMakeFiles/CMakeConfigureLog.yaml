@@ -1,0 +1,584 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:200 (message)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      The target system is: Generic -  - riscv
+      The host system is: Linux - 6.8.0-40-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang 
+      Build flags: -menable-experimental-extensions;-march=rv32imf_zvl512b_zve32x;-mabi=ilp32
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/3.30.2/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang++ 
+      Build flags: -menable-experimental-extensions;-march=rv32imf_zvl512b_zve32x;-mabi=ilp32
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/3.30.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:21 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ"
+      binary: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-scan-deps"
+      CMAKE_C_FLAGS: " -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 "
+      CMAKE_C_FLAGS_DEBUG: " "
+      CMAKE_EXE_LINKER_FLAGS: "  "
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_adbaf
+        [1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32   -std=c11   -v -MD -MT CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c
+        clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)
+        Target: riscv32-unknown-unknown-elf
+        Thread model: posix
+        InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin
+        Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+        Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+         (in-process)
+         "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-17" -cc1 -triple riscv32-unknown-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +f -target-feature +zicsr -target-feature +zve32x -target-feature +zvl128b -target-feature +zvl256b -target-feature +zvl32b -target-feature +zvl512b -target-feature +zvl64b -target-feature -a -target-feature -c -target-feature -d -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvl1024b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl32768b -target-feature -zvl4096b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicond -target-feature -experimental-zihintntl -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ -resource-dir /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17 -dependency-file CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -sys-header-deps -canonical-system-headers -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include -std=c11 -fdebug-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -x c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target riscv32-unknown-elf
+        ignoring duplicate directory "/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include
+         /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include
+        End of search list.
+        [2/2] : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 -v CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -o cmTC_adbaf   && :
+        clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)
+        Target: riscv32-unknown-unknown-elf
+        Thread model: posix
+        InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin
+        Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+        Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+         "/home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld" -m elf32lriscv -X /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0 -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib --start-group -lc -lgloss --end-group -lgcc /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o -o cmTC_adbaf
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include]
+          add: [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include]
+        end of search list found
+        collapse include dir [/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include]
+        collapse include dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include]
+        implicit include dirs: [/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include;/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_adbaf]
+        ignore line: [[1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32   -std=c11   -v -MD -MT CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)]
+        ignore line: [Target: riscv32-unknown-unknown-elf]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin]
+        ignore line: [Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        ignore line: [Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        ignore line: [ (in-process)]
+        ignore line: [ "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-17" -cc1 -triple riscv32-unknown-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +f -target-feature +zicsr -target-feature +zve32x -target-feature +zvl128b -target-feature +zvl256b -target-feature +zvl32b -target-feature +zvl512b -target-feature +zvl64b -target-feature -a -target-feature -c -target-feature -d -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvl1024b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl32768b -target-feature -zvl4096b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicond -target-feature -experimental-zihintntl -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ -resource-dir /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17 -dependency-file CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -sys-header-deps -canonical-system-headers -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include -std=c11 -fdebug-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-SAANjQ -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -x c /usr/share/cmake-3.30/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target riscv32-unknown-elf]
+        ignore line: [ignoring duplicate directory "/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include]
+        ignore line: [ /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 -v CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -o cmTC_adbaf   && :]
+        ignore line: [clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)]
+        ignore line: [Target: riscv32-unknown-unknown-elf]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin]
+        ignore line: [Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        ignore line: [Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        link line: [ "/home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld" -m elf32lriscv -X /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0 -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib --start-group -lc -lgloss --end-group -lgcc /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o -o cmTC_adbaf]
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf32lriscv] ==> ignore
+          arg [-X] ==> ignore
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o] ==> obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o]
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o] ==> obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o]
+          arg [CMakeFiles/cmTC_adbaf.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [-L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0] ==> dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+          arg [-L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib] ==> dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib]
+          arg [--start-group] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgloss] ==> lib [gloss]
+          arg [--end-group] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o] ==> obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o]
+          arg [-o] ==> ignore
+          arg [cmTC_adbaf] ==> ignore
+        ignore line: []
+        ignore line: []
+        collapse obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib/crt0.o]
+        collapse obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o]
+        collapse obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o]
+        collapse library dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0]
+        collapse library dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib]
+        implicit libs: [c;gloss;gcc]
+        implicit objs: [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib/crt0.o;/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o;/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o]
+        implicit dirs: [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0;/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:21 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH"
+      binary: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-scan-deps"
+      CMAKE_CXX_FLAGS: " -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32  "
+      CMAKE_CXX_FLAGS_DEBUG: " "
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "  "
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_a5ddc
+        [1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang++   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32      -v -MD -MT CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp
+        clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)
+        Target: riscv32-unknown-unknown-elf
+        Thread model: posix
+        InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin
+        Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+        Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+         (in-process)
+         "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-17" -cc1 -triple riscv32-unknown-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +f -target-feature +zicsr -target-feature +zve32x -target-feature +zvl128b -target-feature +zvl256b -target-feature +zvl32b -target-feature +zvl512b -target-feature +zvl64b -target-feature -a -target-feature -c -target-feature -d -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvl1024b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl32768b -target-feature -zvl4096b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicond -target-feature -experimental-zihintntl -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH -resource-dir /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17 -dependency-file CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj.d -MT CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -canonical-system-headers -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0 -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/backward -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include -fdeprecated-macro -fdebug-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -x c++ /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target riscv32-unknown-elf
+        ignoring duplicate directory "/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0
+         /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf
+         /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/backward
+         /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include
+         /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include
+        End of search list.
+        [2/2] : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang++ -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 -v CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_a5ddc   && :
+        clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)
+        Target: riscv32-unknown-unknown-elf
+        Thread model: posix
+        InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin
+        Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+        Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0
+         "/home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld" -m elf32lriscv -X /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0 -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib -lstdc++ -lm --start-group -lc -lgloss --end-group -lgcc /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o -o cmTC_a5ddc
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0]
+          add: [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf]
+          add: [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/backward]
+          add: [/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include]
+          add: [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include]
+        end of search list found
+        collapse include dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include/c++/13.2.0]
+        collapse include dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf]
+        collapse include dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/backward] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include/c++/13.2.0/backward]
+        collapse include dir [/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include]
+        collapse include dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include]
+        implicit include dirs: [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include/c++/13.2.0;/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf;/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include/c++/13.2.0/backward;/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include;/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:21 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_a5ddc]
+        ignore line: [[1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang++   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32      -v -MD -MT CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)]
+        ignore line: [Target: riscv32-unknown-unknown-elf]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin]
+        ignore line: [Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        ignore line: [Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        ignore line: [ (in-process)]
+        ignore line: [ "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-17" -cc1 -triple riscv32-unknown-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +f -target-feature +zicsr -target-feature +zve32x -target-feature +zvl128b -target-feature +zvl256b -target-feature +zvl32b -target-feature +zvl512b -target-feature +zvl64b -target-feature -a -target-feature -c -target-feature -d -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvl1024b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl32768b -target-feature -zvl4096b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicond -target-feature -experimental-zihintntl -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH -resource-dir /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17 -dependency-file CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj.d -MT CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -canonical-system-headers -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0 -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/backward -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include -internal-isystem /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include -fdeprecated-macro -fdebug-compilation-dir=/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-YWTVyH -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -x c++ /usr/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target riscv32-unknown-elf]
+        ignore line: [ignoring duplicate directory "/home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0]
+        ignore line: [ /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/riscv32-unknown-elf]
+        ignore line: [ /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/c++/13.2.0/backward]
+        ignore line: [ /home/jueun/park/build/riscv/rv32imf-llvm/lib/clang/17/include]
+        ignore line: [ /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang++ -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 -v CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_a5ddc   && :]
+        ignore line: [clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)]
+        ignore line: [Target: riscv32-unknown-unknown-elf]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin]
+        ignore line: [Found candidate GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        ignore line: [Selected GCC installation: /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+        link line: [ "/home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld" -m elf32lriscv -X /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0 -L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib -lstdc++ -lm --start-group -lc -lgloss --end-group -lgcc /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o -o cmTC_a5ddc]
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf32lriscv] ==> ignore
+          arg [-X] ==> ignore
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o] ==> obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o]
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o] ==> obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o]
+          arg [CMakeFiles/cmTC_a5ddc.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [-L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0] ==> dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0]
+          arg [-L/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib] ==> dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib]
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [--start-group] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgloss] ==> lib [gloss]
+          arg [--end-group] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o] ==> obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o]
+          arg [-o] ==> ignore
+          arg [cmTC_a5ddc] ==> ignore
+        ignore line: []
+        ignore line: []
+        collapse obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/crt0.o] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib/crt0.o]
+        collapse obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o]
+        collapse obj [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o]
+        collapse library dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0]
+        collapse library dir [/home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib] ==> [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib]
+        implicit libs: [stdc++;m;c;gloss;gcc]
+        implicit objs: [/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib/crt0.o;/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtbegin.o;/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0/crtend.o]
+        implicit dirs: [/home/jueun/park/build/riscv/rv32imf-llvm/lib/gcc/riscv32-unknown-elf/13.2.0;/home/jueun/park/build/riscv/rv32imf-llvm/riscv32-unknown-elf/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1205 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineASMCompiler.cmake:135 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "springbok/CMakeLists.txt:15 (enable_language)"
+    message: |
+      Checking whether the ASM compiler is GNU using "--version" did not match "(GNU assembler)|(GCC)|(Free Software Foundation)":
+      clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)
+      Target: riscv32-unknown-unknown-elf
+      Thread model: posix
+      InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1205 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineASMCompiler.cmake:135 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "springbok/CMakeLists.txt:15 (enable_language)"
+    message: |
+      Checking whether the ASM compiler is AppleClang using "--version" did not match "(Apple (clang|LLVM) version)":
+      clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)
+      Target: riscv32-unknown-unknown-elf
+      Thread model: posix
+      InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1192 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineASMCompiler.cmake:135 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "springbok/CMakeLists.txt:15 (enable_language)"
+    message: |
+      Checking whether the ASM compiler is Clang using "--version" matched "(clang version)":
+      clang version 17.0.2 (https://github.com/llvm/llvm-project.git b2417f51dbbd7435eb3aaf203de24de6754da50e)
+      Target: riscv32-unknown-unknown-elf
+      Thread model: posix
+      InstalledDir: /home/jueun/park/build/riscv/rv32imf-llvm/bin
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "third_party/iree/third_party/googletest/googletest/cmake/internal_utils.cmake:70 (find_package)"
+      - "third_party/iree/third_party/googletest/googletest/CMakeLists.txt:88 (config_compiler_and_linker)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2"
+      binary: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-scan-deps"
+      CMAKE_C_FLAGS: " -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 "
+      CMAKE_C_FLAGS_DEBUG: " "
+      CMAKE_EXE_LINKER_FLAGS: "  "
+      CMAKE_MODULE_PATH: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/cmake/;/home/jueun/park/IREE/iree-rv32-springbok-legacy/third_party/iree/build_tools/cmake/"
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_6e124
+        [1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -DCMAKE_HAVE_LIBC_PTHREAD  -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32   -std=c11 -fPIE -MD -MT CMakeFiles/cmTC_6e124.dir/src.c.obj -MF CMakeFiles/cmTC_6e124.dir/src.c.obj.d -o CMakeFiles/cmTC_6e124.dir/src.c.obj -c /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c
+        FAILED: CMakeFiles/cmTC_6e124.dir/src.c.obj 
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -DCMAKE_HAVE_LIBC_PTHREAD  -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32   -std=c11 -fPIE -MD -MT CMakeFiles/cmTC_6e124.dir/src.c.obj -MF CMakeFiles/cmTC_6e124.dir/src.c.obj.d -o CMakeFiles/cmTC_6e124.dir/src.c.obj -c /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:10:3: error: use of undeclared identifier 'pthread_t'
+           10 |   pthread_t thread;
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:11:3: error: call to undeclared function 'pthread_create'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           11 |   pthread_create(&thread, NULL, test_func, NULL);
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:11:19: error: use of undeclared identifier 'thread'; did you mean 'read'?
+           11 |   pthread_create(&thread, NULL, test_func, NULL);
+              |                   ^~~~~~
+              |                   read
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/sys/unistd.h:179:25: note: 'read' declared here
+          179 | _READ_WRITE_RETURN_TYPE read (int __fd, void *__buf, size_t __nbyte);
+              |                         ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:12:3: error: call to undeclared function 'pthread_detach'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           12 |   pthread_detach(thread);
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:12:18: error: use of undeclared identifier 'thread'; did you mean 'read'?
+           12 |   pthread_detach(thread);
+              |                  ^~~~~~
+              |                  read
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/sys/unistd.h:179:25: note: 'read' declared here
+          179 | _READ_WRITE_RETURN_TYPE read (int __fd, void *__buf, size_t __nbyte);
+              |                         ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:13:3: error: call to undeclared function 'pthread_cancel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           13 |   pthread_cancel(thread);
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:13:18: error: use of undeclared identifier 'thread'; did you mean 'read'?
+           13 |   pthread_cancel(thread);
+              |                  ^~~~~~
+              |                  read
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/sys/unistd.h:179:25: note: 'read' declared here
+          179 | _READ_WRITE_RETURN_TYPE read (int __fd, void *__buf, size_t __nbyte);
+              |                         ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:14:3: error: call to undeclared function 'pthread_join'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           14 |   pthread_join(thread, NULL);
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:14:16: error: use of undeclared identifier 'thread'; did you mean 'read'?
+           14 |   pthread_join(thread, NULL);
+              |                ^~~~~~
+              |                read
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/sys/unistd.h:179:25: note: 'read' declared here
+          179 | _READ_WRITE_RETURN_TYPE read (int __fd, void *__buf, size_t __nbyte);
+              |                         ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:15:3: error: call to undeclared function 'pthread_atfork'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           15 |   pthread_atfork(NULL, NULL, NULL);
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-kQh2K2/src.c:16:3: error: call to undeclared function 'pthread_exit'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           16 |   pthread_exit(NULL);
+              |   ^
+        11 errors generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "third_party/iree/third_party/googletest/googletest/cmake/internal_utils.cmake:70 (find_package)"
+      - "third_party/iree/third_party/googletest/googletest/CMakeLists.txt:88 (config_compiler_and_linker)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-hCWvkp"
+      binary: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-hCWvkp"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-scan-deps"
+      CMAKE_C_FLAGS: " -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 "
+      CMAKE_EXE_LINKER_FLAGS: "  "
+      CMAKE_MODULE_PATH: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/cmake/;/home/jueun/park/IREE/iree-rv32-springbok-legacy/third_party/iree/build_tools/cmake/"
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-hCWvkp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_92d72
+        [1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32  -DCHECK_FUNCTION_EXISTS=pthread_create -std=c11 -fPIE -MD -MT CMakeFiles/cmTC_92d72.dir/CheckFunctionExists.c.obj -MF CMakeFiles/cmTC_92d72.dir/CheckFunctionExists.c.obj.d -o CMakeFiles/cmTC_92d72.dir/CheckFunctionExists.c.obj -c /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-hCWvkp/CheckFunctionExists.c
+        [2/2] : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32  -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_92d72.dir/CheckFunctionExists.c.obj -o cmTC_92d72  -lpthreads && :
+        FAILED: cmTC_92d72 
+        : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32  -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_92d72.dir/CheckFunctionExists.c.obj -o cmTC_92d72  -lpthreads && :
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld: cannot find -lpthreads: No such file or directory
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "third_party/iree/third_party/googletest/googletest/cmake/internal_utils.cmake:70 (find_package)"
+      - "third_party/iree/third_party/googletest/googletest/CMakeLists.txt:88 (config_compiler_and_linker)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-G92TTB"
+      binary: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-G92TTB"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-scan-deps"
+      CMAKE_C_FLAGS: " -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 "
+      CMAKE_EXE_LINKER_FLAGS: "  "
+      CMAKE_MODULE_PATH: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/cmake/;/home/jueun/park/IREE/iree-rv32-springbok-legacy/third_party/iree/build_tools/cmake/"
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-G92TTB'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_f9f5d
+        [1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32  -DCHECK_FUNCTION_EXISTS=pthread_create -std=c11 -fPIE -MD -MT CMakeFiles/cmTC_f9f5d.dir/CheckFunctionExists.c.obj -MF CMakeFiles/cmTC_f9f5d.dir/CheckFunctionExists.c.obj.d -o CMakeFiles/cmTC_f9f5d.dir/CheckFunctionExists.c.obj -c /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-G92TTB/CheckFunctionExists.c
+        [2/2] : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32  -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_f9f5d.dir/CheckFunctionExists.c.obj -o cmTC_f9f5d  -lpthread && :
+        FAILED: cmTC_f9f5d 
+        : && /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32  -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_f9f5d.dir/CheckFunctionExists.c.obj -o cmTC_f9f5d  -lpthread && :
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/riscv32-unknown-elf-ld: cannot find -lpthread: No such file or directory
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:136 (try_compile)"
+      - "/usr/share/cmake-3.30/Modules/FindThreads.cmake:179 (_threads_check_flag_pthread)"
+      - "third_party/iree/third_party/googletest/googletest/cmake/internal_utils.cmake:70 (find_package)"
+      - "third_party/iree/third_party/googletest/googletest/CMakeLists.txt:88 (config_compiler_and_linker)"
+    checks:
+      - "Check if compiler accepts -pthread"
+    directories:
+      source: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi"
+      binary: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/jueun/park/build/riscv/rv32imf-llvm/bin/clang-scan-deps"
+      CMAKE_C_FLAGS: " -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32 "
+      CMAKE_EXE_LINKER_FLAGS: "  "
+      CMAKE_MODULE_PATH: "/home/jueun/park/IREE/iree-rv32-springbok-legacy/cmake/;/home/jueun/park/IREE/iree-rv32-springbok-legacy/third_party/iree/build_tools/cmake/"
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+    buildResult:
+      variable: "THREADS_HAVE_PTHREAD_ARG"
+      cached: true
+      stdout: |
+        Change Dir: '/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_c2f88
+        [1/2] /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32   -std=c11 -fPIE -MD -MT CMakeFiles/cmTC_c2f88.dir/CheckForPthreads.c.obj -MF CMakeFiles/cmTC_c2f88.dir/CheckForPthreads.c.obj.d -o CMakeFiles/cmTC_c2f88.dir/CheckForPthreads.c.obj -c /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi/CheckForPthreads.c
+        FAILED: CMakeFiles/cmTC_c2f88.dir/CheckForPthreads.c.obj 
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/clang   -menable-experimental-extensions -march=rv32imf_zvl512b_zve32x -mabi=ilp32   -std=c11 -fPIE -MD -MT CMakeFiles/cmTC_c2f88.dir/CheckForPthreads.c.obj -MF CMakeFiles/cmTC_c2f88.dir/CheckForPthreads.c.obj.d -o CMakeFiles/cmTC_c2f88.dir/CheckForPthreads.c.obj -c /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi/CheckForPthreads.c
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi/CheckForPthreads.c:11:3: error: use of undeclared identifier 'pthread_t'
+           11 |   pthread_t thread;
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi/CheckForPthreads.c:12:3: error: call to undeclared function 'pthread_create'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           12 |   pthread_create(&thread, 0, start_routine, 0);
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi/CheckForPthreads.c:12:19: error: use of undeclared identifier 'thread'; did you mean 'read'?
+           12 |   pthread_create(&thread, 0, start_routine, 0);
+              |                   ^~~~~~
+              |                   read
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/sys/unistd.h:179:25: note: 'read' declared here
+          179 | _READ_WRITE_RETURN_TYPE read (int __fd, void *__buf, size_t __nbyte);
+              |                         ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi/CheckForPthreads.c:13:3: error: call to undeclared function 'pthread_join'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           13 |   pthread_join(thread, 0);
+              |   ^
+        /home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/CMakeFiles/CMakeScratch/TryCompile-WjlSJi/CheckForPthreads.c:13:16: error: use of undeclared identifier 'thread'; did you mean 'read'?
+           13 |   pthread_join(thread, 0);
+              |                ^~~~~~
+              |                read
+        /home/jueun/park/build/riscv/rv32imf-llvm/bin/../lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/include/sys/unistd.h:179:25: note: 'read' declared here
+          179 | _READ_WRITE_RETURN_TYPE read (int __fd, void *__buf, size_t __nbyte);
+              |                         ^
+        5 errors generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...
