@@ -1,0 +1,1 @@
+/usr/bin/verilator_bin;--compiler;gcc;--prefix;Vcfu;--Mdir;/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir;--make;cmake;--cc;-y;/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v;-Wno-WIDTH;-Wno-CASEINCOMPLETE;-Wno-CASEOVERLAP;/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/cfu.v
