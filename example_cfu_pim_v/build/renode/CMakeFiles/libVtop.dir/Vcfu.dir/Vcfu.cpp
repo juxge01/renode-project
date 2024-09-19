@@ -270,7 +270,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[0U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v32 = 1U;
-            VL_WRITEF("acc_result[          0]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          0]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v33 = 
@@ -280,7 +280,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[1U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v33 = 1U;
-            VL_WRITEF("acc_result[          1]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          1]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [1U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v34 = 
@@ -290,7 +290,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[2U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v34 = 1U;
-            VL_WRITEF("acc_result[          2]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          2]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [2U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v35 = 
@@ -300,7 +300,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[3U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v35 = 1U;
-            VL_WRITEF("acc_result[          3]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          3]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [3U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v36 = 
@@ -310,7 +310,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[4U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v36 = 1U;
-            VL_WRITEF("acc_result[          4]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          4]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [4U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v37 = 
@@ -320,7 +320,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[5U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v37 = 1U;
-            VL_WRITEF("acc_result[          5]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          5]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [5U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v38 = 
@@ -330,7 +330,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[6U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v38 = 1U;
-            VL_WRITEF("acc_result[          6]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          6]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [6U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v39 = 
@@ -340,7 +340,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[7U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v39 = 1U;
-            VL_WRITEF("acc_result[          7]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          7]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [7U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v40 = 
@@ -350,7 +350,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[8U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v40 = 1U;
-            VL_WRITEF("acc_result[          8]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          8]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [8U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v41 = 
@@ -360,7 +360,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                   + (vlTOPp->cfu__DOT__adc_out[9U] 
                      << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v41 = 1U;
-            VL_WRITEF("acc_result[          9]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[          9]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [9U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v42 = 
@@ -370,7 +370,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0xaU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v42 = 1U;
-            VL_WRITEF("acc_result[         10]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         10]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0xaU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v43 = 
@@ -380,7 +380,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0xbU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v43 = 1U;
-            VL_WRITEF("acc_result[         11]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         11]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0xbU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v44 = 
@@ -390,7 +390,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0xcU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v44 = 1U;
-            VL_WRITEF("acc_result[         12]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         12]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0xcU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v45 = 
@@ -400,7 +400,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0xdU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v45 = 1U;
-            VL_WRITEF("acc_result[         13]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         13]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0xdU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v46 = 
@@ -410,7 +410,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0xeU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v46 = 1U;
-            VL_WRITEF("acc_result[         14]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         14]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0xeU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v47 = 
@@ -420,7 +420,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0xfU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v47 = 1U;
-            VL_WRITEF("acc_result[         15]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         15]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0xfU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v48 = 
@@ -430,7 +430,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x10U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v48 = 1U;
-            VL_WRITEF("acc_result[         16]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         16]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x10U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v49 = 
@@ -440,7 +440,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x11U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v49 = 1U;
-            VL_WRITEF("acc_result[         17]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         17]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x11U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v50 = 
@@ -450,7 +450,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x12U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v50 = 1U;
-            VL_WRITEF("acc_result[         18]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         18]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x12U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v51 = 
@@ -460,7 +460,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x13U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v51 = 1U;
-            VL_WRITEF("acc_result[         19]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         19]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x13U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v52 = 
@@ -470,7 +470,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x14U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v52 = 1U;
-            VL_WRITEF("acc_result[         20]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         20]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x14U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v53 = 
@@ -480,7 +480,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x15U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v53 = 1U;
-            VL_WRITEF("acc_result[         21]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         21]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x15U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v54 = 
@@ -490,7 +490,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x16U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v54 = 1U;
-            VL_WRITEF("acc_result[         22]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         22]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x16U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v55 = 
@@ -500,7 +500,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x17U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v55 = 1U;
-            VL_WRITEF("acc_result[         23]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         23]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x17U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v56 = 
@@ -510,7 +510,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x18U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v56 = 1U;
-            VL_WRITEF("acc_result[         24]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         24]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x18U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v57 = 
@@ -520,7 +520,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x19U] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v57 = 1U;
-            VL_WRITEF("acc_result[         25]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         25]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x19U],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v58 = 
@@ -530,7 +530,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x1aU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v58 = 1U;
-            VL_WRITEF("acc_result[         26]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         26]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x1aU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v59 = 
@@ -540,7 +540,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x1bU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v59 = 1U;
-            VL_WRITEF("acc_result[         27]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         27]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x1bU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v60 = 
@@ -550,7 +550,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x1cU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v60 = 1U;
-            VL_WRITEF("acc_result[         28]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         28]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x1cU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v61 = 
@@ -560,7 +560,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x1dU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v61 = 1U;
-            VL_WRITEF("acc_result[         29]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         29]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x1dU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v62 = 
@@ -570,7 +570,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x1eU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v62 = 1U;
-            VL_WRITEF("acc_result[         30]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         30]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x1eU],5,vlTOPp->cfu__DOT__shift_cnt);
             __Vdlyvval__cfu__DOT__acc_result__v63 = 
@@ -580,7 +580,7 @@ VL_INLINE_OPT void Vcfu::_sequent__TOP__6(Vcfu__Syms* __restrict vlSymsp) {
                      + (vlTOPp->cfu__DOT__adc_out[0x1fU] 
                         << (IData)(vlTOPp->cfu__DOT__shift_cnt))));
             vlTOPp->__Vdlyvset__cfu__DOT__acc_result__v63 = 1U;
-            VL_WRITEF("acc_result[         31]: %x <- shift_cnt: %x\n",
+            VL_WRITEF("acc_result[         31]: %x <- shift_cnt: %b\n",
                       32,vlTOPp->cfu__DOT__acc_result
                       [0x1fU],5,vlTOPp->cfu__DOT__shift_cnt);
             vlTOPp->__Vdly__cfu__DOT__shift_cnt = (0x1fU 

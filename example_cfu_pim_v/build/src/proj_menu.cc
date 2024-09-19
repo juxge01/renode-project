@@ -30,14 +30,46 @@ void do_hello_world(void) { puts("Hello, DataLab!!!\n"); }
 
 // Test template instruction
 void do_exercise_cfu_op0(void) {
-  // puts("\nExercise CFU Op0 - Read/Write/MAC Operations\n");
-  puts("\nExercise CFU Op0 - MAC Operations\n");
+  // puts("\nExercise CFU Op0 - Read Operations\n");
+  puts("\nExercise CFU Op0 - Read Operations\n");
   int count = 0;
 
   for (int a = -0x71234567; a < 0x68000000; a += 0x10012345) {
     for (int b = -0x7edcba98; b < 0x68000000; b += 0x10770077) {
       int cfu = cfu_op0(0, a, b);
-      printf("a: %08x b:%08x, cfu= %08x\n", a, b, cfu);
+      printf("READ >> a: %08x b:%08x, cfu= %08x\n", a, b, cfu);
+      
+      count++;
+    } 
+  } 
+  printf("Performed %d comparisons", count);
+}
+
+void do_exercise_cfu_op1(void) {
+  // puts("\nExercise CFU Op1 - Write Operations\n");
+  puts("\nExercise CFU Op1 - Write Operations\n");
+  int count = 0;
+
+  for (int a = -0x71234567; a < 0x68000000; a += 0x10012345) {
+    for (int b = -0x7edcba98; b < 0x68000000; b += 0x10770077) {
+      int cfu = cfu_op1(0, a, b);
+      printf("WRITE >> a: %08x b:%08x, cfu= %08x\n", a, b, cfu);
+      
+      count++;
+    } 
+  } 
+  printf("Performed %d comparisons", count);
+}
+
+void do_exercise_cfu_op2(void) {
+  // puts("\nExercise CFU Op2 - Read/Write/MAC Operations\n");
+  puts("\nExercise CFU Op2 - MAC Operations\n");
+  int count = 0;
+
+  for (int a = -0x71234567; a < 0x68000000; a += 0x10012345) {
+    for (int b = -0x7edcba98; b < 0x68000000; b += 0x10770077) {
+      int cfu = cfu_op2(0, a, b);
+      printf("MAC_OUT >> a: %08x b:%08x, cfu= %08x\n", a, b, cfu);
       
       count++;
     } 
@@ -50,6 +82,8 @@ struct Menu MENU = {
     "project",
     {
         MENU_ITEM('0', "exercise cfu op0", do_exercise_cfu_op0),
+        MENU_ITEM('1', "exercise cfu op1", do_exercise_cfu_op1),
+        MENU_ITEM('2', "exercise cfu op2", do_exercise_cfu_op2),
         MENU_ITEM('h', "say Hello", do_hello_world),
         MENU_END,
     },

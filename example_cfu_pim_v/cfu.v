@@ -87,8 +87,8 @@ module cfu#(
             else begin // Processing Enabled -> MAC operation
                 for (i = 0; i < PWIDTH; i = i+1) begin
                     acc_result[i] <= (shift_cnt == 0) ? adc_out[i] : acc_result[i] + (adc_out[i] << shift_cnt);
-		    $display("acc_result[%d]: %h <- shift_cnt: %h", i, acc_result[i], shift_cnt);
-		end
+		            $display("acc_result[%d]: %h <- shift_cnt: %b", i, acc_result[i], shift_cnt);
+		        end
                 shift_cnt <= shift_cnt + 1;
 
                 // Initialize sum_acc_result
@@ -98,8 +98,8 @@ module cfu#(
                 for (i = 0; i < PWIDTH; i = i+1) begin
                     temp_sum_acc_result = temp_sum_acc_result + acc_result[i];
                     sum_acc_result <= temp_sum_acc_result;
-		    $display("temp_sum_acc_result: %h", temp_sum_acc_result);
-		    $display("sum_acc_result: %h", sum_acc_result);
+                    $display("temp_sum_acc_result: %h", temp_sum_acc_result);
+                    $display("sum_acc_result: %h", sum_acc_result);
                 end
                 mac_out_reg <= sum_acc_result;
             end
