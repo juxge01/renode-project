@@ -1,42 +1,24 @@
-// Copyright 2021 The CFU-Playground Authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-
-
-module Cfu #(
+module cfu#(
     parameter PIM_ADDR_BEGIN = 'h000,
     parameter DWIDTH = 32,   // DATA WIDTH
-    parameter AWIDTH = 8,    // ADDRESS WIDTH
+    parameter AWIDTH = 10,    // ADDRESS WIDTH
     parameter PWIDTH = 32,   // PIM WIDTH
     parameter PDEPTH = (1 << AWIDTH) // PIM DEPTH
 )(
-    output [PWIDTH-1:0] q,
-    output [DWIDTH-1:0] mac_out,
-    output [DWIDTH-1:0] rsp_payload_outputs_0,  // Output signal added
-    input [PWIDTH-1:0] cmd_payload_inputs_0,
+    // output [PWIDTH-1:0] q,
+    // output [DWIDTH-1:0] mac_out,
+    input [PWIDTH-1:0] cmd_payload_inputs_1,    // not using
+    input [PWIDTH-1:0] cmd_payload_inputs_0,    
     input [AWIDTH-1:0] cmd_payload_function_id,
-    input [PDEPTH-1:0] rwl,
-    input w_en,
-    input p_en,
+    // input [PDEPTH-1:0] rwl,
     input clk,
     input reset,
     input cmd_valid,
-    input [31:0] cmd_payload_inputs_1,  // Declared but not used
     output cmd_ready,
     output rsp_valid,
     input rsp_ready,
-    output rsp_payload_response_ok
+    output rsp_payload_response_ok,
+    output [DWIDTH-1:0] rsp_payload_outputs_0
 );
 
     reg [PWIDTH-1:0] mem [PIM_ADDR_BEGIN:PIM_ADDR_BEGIN+PDEPTH-1];
@@ -46,6 +28,13 @@ module Cfu #(
     reg [DWIDTH-1:0] sum_acc_result;
     reg [DWIDTH-1:0] mac_out_reg;
     reg [PWIDTH-1:0] q_reg;
+    reg [DWIDTH-1:0] out;
+
+    wire p_en, w_en;
+    assign p_en = cmd_payload_function_id[1];
+    assign w_en = cmd_payload_function_id[0];
+
+    wire [7:0] mem_addr = cmd_payload_function_id[AWIDTH-1:AWIDTH-8];
 
     assign rsp_valid = cmd_valid;
     assign cmd_ready = rsp_ready;
@@ -60,6 +49,15 @@ module Cfu #(
     end	
 
 	reg [DWIDTH-1:0] temp_sum_acc_result;
+
+    reg [PDEPTH-1:0] rwl;
+    always @(posedge clk or negedge reset) begin
+        if (reset) begin
+            rwl <= 0;  // Reset rwl
+        end else begin
+            rwl <= $random;  // Generate random rwl
+        end
+    end
     
 	always @(posedge clk or negedge reset) begin
         if (reset) begin
@@ -75,10 +73,10 @@ module Cfu #(
         else begin
             if (!p_en) begin // Processing Disabled -> Memory operation
                 if (w_en) begin // Memory Write Enable
-                    mem[cmd_payload_function_id] <= cmd_payload_inputs_0;
+                    mem[mem_addr] <= cmd_payload_inputs_0;
                 end
                 else begin // Memory Read Enable
-                    q_reg <= mem[cmd_payload_function_id];
+                    q_reg <= mem[mem_addr];
                 end
                 // Initialize accumulation
                 shift_cnt <= 0;
@@ -89,7 +87,8 @@ module Cfu #(
             else begin // Processing Enabled -> MAC operation
                 for (i = 0; i < PWIDTH; i = i+1) begin
                     acc_result[i] <= (shift_cnt == 0) ? adc_out[i] : acc_result[i] + (adc_out[i] << shift_cnt);
-                end
+		    $display("acc_result[%d]: %h <- shift_cnt: %h", i, acc_result[i], shift_cnt);
+		end
                 shift_cnt <= shift_cnt + 1;
 
                 // Initialize sum_acc_result
@@ -99,15 +98,16 @@ module Cfu #(
                 for (i = 0; i < PWIDTH; i = i+1) begin
                     temp_sum_acc_result = temp_sum_acc_result + acc_result[i];
                     sum_acc_result <= temp_sum_acc_result;
+		    $display("temp_sum_acc_result: %h", temp_sum_acc_result);
+		    $display("sum_acc_result: %h", sum_acc_result);
                 end
                 mac_out_reg <= sum_acc_result;
             end
-			$display("mac_out: %h", mac_out);
         end
     end
 
-    assign q = q_reg;
-    assign mac_out = mac_out_reg;
+    // assign q = q_reg;
+    // assign mac_out = mac_out_reg;
 
     always @(*) begin
         for (i = 0; i < PWIDTH; i = i+1) begin
@@ -118,68 +118,26 @@ module Cfu #(
         end
 	end
 
-    // Select output based on p_en and w_en
-    // assign rsp_payload_outputs_0 = p_en ? mac_out_reg : (w_en ? 32'h00000000 : q_reg);
-    reg [PWIDTH-1:0] rsp_payload_outputs_0_reg;
-
-    always @(posedge clk or negedge reset) begin
-      if (reset) begin
-        rsp_payload_outputs_0_reg <= 32'd0;
-      end
-      else begin
-        rsp_payload_outputs_0_reg <= p_en ? mac_out_reg : (w_en ? rsp_payload_outputs_0 : q_reg);
-      end
+    always @(posedge clk or posedge reset) begin
+        if(reset) out <= 32'd0;
+        else begin
+	    if (p_en) begin
+		out <= mac_out_reg;
+		$display("MacOut: %h", mac_out_reg); // p_en, w_en = b'10 or 11
+	    end
+            else begin
+	        if (w_en) begin
+		    out <= mem[mem_addr];
+		    $display("Write: %h", mem[mem_addr]); // p_en, w_en = b'01
+	        end
+	        else begin 
+		    out <= q_reg;
+		    $display("Read: %h", q_reg); // p_en, w_en = b'00
+	        end
+            end
+        end
     end
-    assign rsp_payload_outputs_0 = rsp_payload_outputs_0_reg;
 
-    // assign rsp_payload_outputs_0 = p_en ? mac_out_reg : (w_en ? rsp_payload_outputs_0 : q_reg);
-
+    assign rsp_payload_outputs_0 = out;
+	
 endmodule
-
-//   input               cmd_valid,
-//   output              cmd_ready,
-//   input      [9:0]    cmd_payload_function_id,
-//   input      [31:0]   cmd_payload_inputs_0,
-//   input      [31:0]   cmd_payload_inputs_1,
-//   output              rsp_valid,
-//   input               rsp_ready,
-//   output     [31:0]   rsp_payload_outputs_0,
-//   input               clk,
-//   input               reset
-// );
-
-//   assign rsp_valid = cmd_valid;
-//   assign cmd_ready = rsp_ready;
-
-//   //  byte sum (unsigned)
-//   wire [31:0] cfu0;
-//   assign cfu0[31:0] =  cmd_payload_inputs_0[7:0]   + cmd_payload_inputs_1[7:0] +
-//                        cmd_payload_inputs_0[15:8]  + cmd_payload_inputs_1[15:8] +
-//                        cmd_payload_inputs_0[23:16] + cmd_payload_inputs_1[23:16] +
-//                        cmd_payload_inputs_0[31:24] + cmd_payload_inputs_1[31:24];
-
-//   // byte swap
-//   wire [31:0] cfu1;
-//   assign cfu1[31:24] =     cmd_payload_inputs_0[7:0];
-//   assign cfu1[23:16] =     cmd_payload_inputs_0[15:8];
-//   assign cfu1[15:8] =      cmd_payload_inputs_0[23:16];
-//   assign cfu1[7:0] =       cmd_payload_inputs_0[31:24];
-
-//   // bit reverse
-//   wire [31:0] cfu2;
-//   genvar n;
-//   generate
-//       for (n=0; n<32; n=n+1) begin
-//           assign cfu2[n] =     cmd_payload_inputs_0[31-n];
-//       end
-//   endgenerate
-
-
-//   //
-//   // select output -- note that we're not fully decoding the 3 function_id bits
-//   //
-//   assign rsp_payload_outputs_0 = cmd_payload_function_id[1] ? cfu2 :
-//                                       ( cmd_payload_function_id[0] ? cfu1 : cfu0);
-
-
-// endmodule
