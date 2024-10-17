@@ -290,7 +290,9 @@ iree_status_t run(const MlModel *model)
   return result;
 }
 
-/////
+// ==============================================================================
+//                              ControlBlock
+// ==============================================================================
 static __always_inline uint32_t read_mac_out(void)
 {
   uint32_t mac_out;
@@ -300,28 +302,227 @@ static __always_inline uint32_t read_mac_out(void)
       : "=r"(mac_out));
   return mac_out;
 }
+// ==============================================================================
 
-// static __always_inline uint32_t read_cfu(void)
-// {
-//   uint32_t mac_out;
-//   __asm__ volatile(
-//       ".word 0x0000577b\n" // custom-3, fucnt3 = 5. 
-//       : "=r"(mac_out));
-//   return mac_out;
-// }
-/////
+// ==============================================================================
+//                          Custom Function Unit
+// ==============================================================================
+static __always_inline uint32_t cfu_op(uint32_t funct)
+{
+  uint32_t result;
+  // LOG_INFO("CFU operation started. funct = %u", funct);
+
+  switch (funct)
+  {
+    case 0: // READ
+      __asm__ volatile(
+        ".word 0x0084868b\n" // op0
+        : "=r"(result)
+      );
+      LOG_INFO("READ operation finished. Result = %u", result);
+      break;
+
+    case 1: // WRITE
+      __asm__ volatile(
+        ".word 0x0084968b\n" // op1
+        : "=r"(result)
+      );
+      LOG_INFO("WRITE operation finished. Result = %u", result);
+      break;
+
+    case 2: // MAC Calculation
+      __asm__ volatile(
+        ".word 0x0084a68b\n" // op2
+        : "=r"(result)
+      );
+      LOG_INFO("MAC operation finished. Result = %u", result);
+      break;
+
+    //// Fixed Test
+    case 3: // fixed test - READ
+      __asm__ volatile(
+        ".word 0x00c4068b\n" // op0
+        : "=r"(result)
+      );
+      LOG_INFO("case 3: fixed operation finished. Result = %u", result);
+      break;
+
+    case 4: // fixed test - WRITE
+      __asm__ volatile(
+        ".word 0x00c4170b\n" // op1
+        : "=r"(result)
+      );
+      LOG_INFO("case 4: fixed operation finished. Result = %u", result);
+      break;
+
+    case 5: // fixed test - MAC Calculation
+      __asm__ volatile(
+        ".word 0x00c4278b\n" // op2
+        : "=r"(result)
+      );
+      LOG_INFO("case 5: fixed operation finished. Result = %u", result);
+      break;
+    ////
+
+    //// Compare Test
+    case 6: // compare test - READ
+      __asm__ volatile(
+        ".word 0x01b4098b\n" // op0
+        : "=r"(result)
+      );
+      LOG_INFO("case 6: compare operation finished. Result = %u", result);
+      break;
+
+    case 7: // compare test - WRITE
+      __asm__ volatile(
+        ".word 0x01b41a0b\n" // op1
+        : "=r"(result)
+      );
+      LOG_INFO("case 7: compare operation finished. Result = %u", result);
+      break;
+
+    case 8: // compare test - MAC Calculation
+      __asm__ volatile(
+        ".word 0x0b42a8b\n" // op2
+        : "=r"(result)
+      );
+      LOG_INFO("case 8: compare operation finished. Result = %u", result);
+      break;
+    // 
+    
+    // do_interactive_tests
+    // 0x0094580b : Write
+    // 0x0094480b : Read
+    case 9: // interactive test - Read
+      __asm__ volatile(
+        ".word 0x0094480b\n" // op2
+        : "=r"(result)
+      );
+      LOG_INFO("case 9: interactive operation finished. Result = %u", result);
+      break;
+
+    case 10: // interactive test - Write
+      __asm__ volatile(
+        ".word 0x0094580b\n" // op2
+        : "=r"(result)
+      );
+      LOG_INFO("case 10: interactive operation finished. Result = %u", result);
+      break;
+
+    case 11: // interactive test - Write
+      __asm__ volatile(
+        ".word 0x0094680b\n" // op2
+        : "=r"(result)
+      );
+      LOG_INFO("case 11: interactive operation finished. Result = %u", result);
+      break;
+    ////
+
+    default:
+      result = 0;
+      LOG_INFO("Invalid funct value: %u", funct);
+      break;
+  }
+  // LOG_INFO("CFU operation ended.");
+
+  return result;
+}
+// ==============================================================================
 
 int main()
 {
   const MlModel *model_ptr = &kModel;
-  LOG_INFO("Hello DataLab, Hello Semibrain");
+  LOG_INFO("Hello DGIST, Hello Semibrain");
 
   /////
-  uint32_t mac_out_controlblock = read_mac_out();
-  LOG_INFO("ControlBlock >> MAC_OUT value: %u", mac_out_controlblock);
+  // uint32_t mac_out_controlblock = read_mac_out();
+  // LOG_INFO("ControlBlock >> MAC_OUT value: %u", mac_out_controlblock);
   
-  // uint32_t mac_out_cfu = read_cfu();
-  // LOG_INFO("CFU >> MAC_OUT value: %u", mac_out_cfu);
+  LOG_INFO("CFU Hello ~");
+
+  int repeat_count = 5;
+  // int repeat_count_time = 10;
+
+  // Test 1 
+  for (int i = 0; i < repeat_count; i++) {
+    uint32_t write_cfu_0 = cfu_op(1); // funct = 1 (WRITE)
+    LOG_INFO("WRITE iteration %d: %u", i, write_cfu_0);
+  }
+
+  for (int i = 0; i < repeat_count; i++) {
+    uint32_t read_cfu_0 = cfu_op(0); // funct = 0 (READ)
+    LOG_INFO("READ iteration %d: %u", i, read_cfu_0);
+  }
+
+  for (int i = 0; i < repeat_count; i++) {
+    uint32_t mac_cfu_0 = cfu_op(2); // funct = 2 (MAC Calculation)
+    LOG_INFO("MAC Calculation iteration %d: %u", i, mac_cfu_0);
+  }
+
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t write_cfu_0 = cfu_op(1); // funct = 1 (WRITE)
+  //   LOG_INFO("WRITE iteration %d: %u", i, write_cfu_0);
+
+  //   uint32_t read_cfu_0 = cfu_op(0); // funct = 0 (READ)
+  //   LOG_INFO("READ iteration %d: %u", i, read_cfu_0);
+
+  //   uint32_t mac_cfu_0 = cfu_op(2); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("MAC Calculation iteration %d: %u", i, mac_cfu_0);
+  // }
+
+  // Test 2
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_1 = cfu_op(4); // funct = 2 (Write)
+  //   LOG_INFO("cfu_1: %u", cfu_1);
+  // }
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_0 = cfu_op(3); // funct = 2 (Read)
+  //   LOG_INFO("cfu_0: %u", cfu_0);
+  // }
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_2 = cfu_op(5); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("cfu_2: %u", cfu_2);
+  // }
+
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_0 = cfu_op(3); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("cfu_0: %u", cfu_0);
+    
+  //   uint32_t cfu_1 = cfu_op(4); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("cfu_1: %u", cfu_1);
+    
+  //   uint32_t cfu_2 = cfu_op(5); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("cfu_2: %u", cfu_2);
+  // }
+
+  // Test 3
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_3 = cfu_op(6); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("cfu_3: %u", cfu_3);
+    
+  //   uint32_t cfu_4 = cfu_op(7); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("cfu_4: %u", cfu_4);
+    
+  //   uint32_t cfu_5 = cfu_op(8); // funct = 2 (MAC Calculation)
+  //   LOG_INFO("cfu_5: %u", cfu_5);
+  // }
+
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_7 = cfu_op(10); // Write
+  //   LOG_INFO("cfu_7: %u", cfu_7);
+  // }
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_6 = cfu_op(9); // Read
+  //   LOG_INFO("cfu_6: %u", cfu_6);  
+  // }
+  // for (int i = 0; i < repeat_count; i++) {
+  //   uint32_t cfu_8 = cfu_op(11); // MacOut
+  //   LOG_INFO("cfu_8: %u", cfu_8);  
+  // }
+
+  // LOG_INFO("MAC operation : %u", mac_cfu_0);
+
+  LOG_INFO("CFU Bye ~");
   /////
 
   const iree_status_t result = run(model_ptr);

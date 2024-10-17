@@ -18,36 +18,48 @@ mach create "springbok"
 
 EnsureTypeIsLoaded "Antmicro.Renode.Peripherals.CPU.RiscV32"
 include @/home/jueun/park/IREE/iree-rv32-springbok-legacy/sim/config/infrastructure/SpringbokRiscV32.cs
-# include @/home/jueun/park/renode/renode/src/Plugins/VerilatorPlugin/Verilated/Peripherals/CFUVerilatedPeripheral.cs
 
-#$platformfile?=@sim/config/platforms/springbok.repl
-# $platformfile?=@sim/config/platforms/springbok_cfu_pim_test.repl
 $platformfile?=@/home/jueun/park/IREE/iree-rv32-springbok-legacy/sim/config/platforms/springbok_cfu_pim_test.repl
 
 machine LoadPlatformDescription $platformfile
 
-# $bin?=@build/build-riscv/samples/simple_vec_mul/simple_int_vec_mul_emitc_static
-$bin?=@https://dl.antmicro.com/projects/renode/verilated-cfu-test-software.elf-s_10742536-04c41fb55c3011b440a3e6eb955756268f28c151
-# $bin?=@/home/jueun/park/IREE/iree-rv32-springbok/build/build-riscv/samples/ecg_small/ecg_small_fp32_emitc_static
-$cfuPim?=@/home/jueun/park/renode/baremetal-riscv-renode/renode-verilator-integration/samples/cfu_test/build_test/libVtop.so
+$bin?=@/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/software.elf
 
 showAnalyzer sysbus.uart
 
-sysbus.cpu2.pim_cfu0 SimulationFilePath $cfuPim
+sysbus.cpu2.pim_cfu0 SimulationFilePathLinux @/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/libVtop.so
+
+# These CSR registers are mocked here to match the CPU used by the CFU-Playground project.
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB04  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB05  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB06  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB07  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB08  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB09  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB0A  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB0B  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB0C  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB0D  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB0E  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB0F  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB10  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB11  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB12  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB13  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB14  User
+sysbus.cpu2 RegisterCustomCSR "BPM" 0xB15  User
 
 macro reset
 """
     sysbus LoadELF $bin
     # Start the vector core at address 0 of its instruction TCM.
     sysbus.cpu2 IsHalted true
-    sysbus.cpu2 PC 0x32000000
+    # sysbus.cpu2 PC 0x32000000
 """
 runMacro $reset
 
-sysbus.vec_controlblock SetMacOutValue 42
-# sysbus.cpu2.pim_cfu0 SetCFUMacOutValue 20
-
-start
-
-echo "Resc file echo test!"
-
+echo "Software loaded. It is the `example_cfu` from CFU-Playground (https://github.com/google/CFU-Playground)."
+echo "You can test it by running `Functional CFU Test` (2) menu option."
+echo ""
+echo "To test a more advanced CFU you can use `cfu_mnv2` from https://github.com/antmicro/renode-verilator-integration/tree/master/samples/cfu_mnv2 with `mnv2_first` software from https://github.com/google/CFU-Playground/tree/main/proj/mnv2_first."
+echo "MobileNetv2 CFU will let you test models with `TfLM Models menu` (1) or `Project menu` (3)."
