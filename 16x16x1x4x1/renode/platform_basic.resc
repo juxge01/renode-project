@@ -1,0 +1,28 @@
+using sysbus
+mach create
+
+machine LoadPlatformDescription $ORIGIN/platform_basic.repl
+
+showAnalyzer uart
+logLevel 0
+
+$bin?=@/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/samples/ecg_small/ecg_small_fp32_emitc_static
+
+macro reset
+"""
+    sysbus LoadELF $bin
+    sysbus.cpu IsHalted false
+"""
+runMacro $reset
+
+echo "AXI sa_16x16 Model loaded and ready for testing."
+
+echo "TEST 1 - MEM TEST"
+sysbus.sa_16x16 WriteDoubleWord 0x33000000 0xABCD
+sysbus.sa_16x16 ReadDoubleWord 0x33000000
+
+echo "TEST 2 - sa_16x16 TEST"
+sysbus.sa_16x16 WriteDoubleWord 0x33FF0010 0x00CD
+sysbus.sa_16x16 ReadDoubleWord 0x33FF0010
+
+
