@@ -1,0 +1,15 @@
+cpu: CPU.RiscV32 @ sysbus
+    cpuType: "rv32gcv"
+
+ram_vec_imem: Memory.MappedMemory @ sysbus 0x32000000
+    size: 0x00100000
+
+ram_vec_dmem: Memory.MappedMemory @ sysbus 0x34000000
+    size: 0x01000000
+
+sa_32x32: Verilated.BaseDoubleWordVerilatedPeripheral @ sysbus <0x33000000, +0x1000000>
+    SimulationFilePath: "/home/jueun/park/renode/baremetal-riscv-renode/renode-verilator-integration/samples/axi_sa_32x32/build/libVtop.so"
+    frequency: 100000 
+
+uart: UART.LiteX_UART @ sysbus 0x82002000
+    -> cpu@0

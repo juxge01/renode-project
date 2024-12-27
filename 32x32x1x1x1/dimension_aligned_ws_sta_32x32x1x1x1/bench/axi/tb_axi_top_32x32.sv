@@ -2,18 +2,17 @@
 
 module tb_axi_top_32x32;
 
-    // Parameters
     parameter DATA_WIDTH = 32;
-    parameter ADDR_WIDTH = 20;
-    parameter STRB_WIDTH = DATA_WIDTH / 8;
+    parameter ADDR_WIDTH = 16;
+    parameter STRB_WIDTH = (DATA_WIDTH / 8);
     parameter ID_WIDTH = 8;
-    parameter PIPELINE_OUTPUT = 0;
+    // ---------------------------------------------------------------------
+    parameter VALID_ADDR_WIDTH = ADDR_WIDTH - $clog2(STRB_WIDTH);
+    // ---------------------------------------------------------------------
 
-    // Clock and reset
-    reg clk;
-    reg rst;
+    reg clock;
+    reg reset;
 
-    // AXI4 signals
     reg [ID_WIDTH-1:0] s_axi_awid;
     reg [ADDR_WIDTH-1:0] s_axi_awaddr;
     reg [7:0] s_axi_awlen;
@@ -54,17 +53,14 @@ module tb_axi_top_32x32;
     wire s_axi_rvalid;
     reg s_axi_rready;
 
-    // Instantiate the DUT
     axi_top_32x32 #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
         .STRB_WIDTH(STRB_WIDTH),
-        .ID_WIDTH(ID_WIDTH),
-        .PIPELINE_OUTPUT(PIPELINE_OUTPUT)
-    ) dut (
-        .clk(clk),
-        .rst(rst),
-
+        .ID_WIDTH(ID_WIDTH)
+    ) uut (
+        .clock(clock),
+        .reset(reset),
         .s_axi_awid(s_axi_awid),
         .s_axi_awaddr(s_axi_awaddr),
         .s_axi_awlen(s_axi_awlen),
@@ -101,103 +97,168 @@ module tb_axi_top_32x32;
         .s_axi_rvalid(s_axi_rvalid),
         .s_axi_rready(s_axi_rready)
     );
+    
+    reg [ADDR_WIDTH-1:0] address;
+    reg [DATA_WIDTH-1:0] write_data;
+	integer i, k;
 
-    // Clock generation
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;  // 100 MHz clock
-    end
+    initial clock = 0;
+    always #5 clock = ~clock;
 
-    // Reset generation
-    initial begin
-        rst = 1;
-        #20 rst = 0;  // Release reset after 20 ns
-    end
+    task reset_cpu;
+        begin
+            @(negedge clock);
+            reset = 1;
+            @(negedge clock);
+            reset = 0;
+            @(negedge clock);
+        end
+    endtask
 
-    // Testbench logic
+    always #5 clock = ~clock;
+
     initial begin
-        // Initialize signals
+        reset = 1;
         s_axi_awid = 0;
         s_axi_awaddr = 0;
         s_axi_awlen = 0;
-        s_axi_awsize = 3'b010;  // 4-byte transfer
-        s_axi_awburst = 2'b01; // INCR mode
-        s_axi_awlock = 0;
-        s_axi_awcache = 4'b0011;
-        s_axi_awprot = 3'b000;
+        s_axi_awsize = 0;
+        s_axi_awburst = 0;
         s_axi_awvalid = 0;
-
         s_axi_wdata = 0;
-        s_axi_wstrb = {STRB_WIDTH{1'b1}}; // All bytes enabled
+        s_axi_wstrb = 0;
         s_axi_wlast = 0;
         s_axi_wvalid = 0;
-
         s_axi_bready = 0;
-
         s_axi_arid = 0;
         s_axi_araddr = 0;
         s_axi_arlen = 0;
-        s_axi_arsize = 3'b010;  // 4-byte transfer
-        s_axi_arburst = 2'b01; // INCR mode
-        s_axi_arlock = 0;
-        s_axi_arcache = 4'b0011;
-        s_axi_arprot = 3'b000;
+        s_axi_arsize = 0;
+        s_axi_arburst = 0;
         s_axi_arvalid = 0;
-
         s_axi_rready = 0;
 
-        // Wait for reset to be deasserted
-        @(negedge rst);
+        $display("Starting AXI PIM Testbench...\n");
+        reset_cpu();
 
-        // Write transaction
-        $display("Starting write transaction...");
-        s_axi_awid = 8'h1;                // ID for write transaction
-        s_axi_awaddr = 20'h00010;         // Target address
-        s_axi_awlen = 8'h00;              // Single transfer
-        s_axi_awvalid = 1;
+		$display("[TEST] WRITE TEST");
+		for (i = 0; i < 100; i++) begin
+            address = $urandom & ((1 << ADDR_WIDTH) - 1);
+            write_data = $urandom;
 
-        @(posedge clk);
-        while (!s_axi_awready) @(posedge clk);
-        s_axi_awvalid = 0;
+            $display("-------------------------------------------------------------------");
+            $display("[%t] Starting test case with Random Address: 0x%04X, Random Data: 0x%08X", $time, address, write_data);
 
-        s_axi_wdata = 32'hDEADBEEF;       // Data to write
-        s_axi_wlast = 1;
-        s_axi_wvalid = 1;
+            write_task(i, address, write_data); 
+        end
 
-        @(posedge clk);
-        while (!s_axi_wready) @(posedge clk);
-        s_axi_wvalid = 0;
+        $display("==========================================================================");
+        $display("[TEST] READ TEST");
+        for (i = 0; i < 100; i++) begin
+            address = $urandom & ((1 << ADDR_WIDTH) - 1);
 
-        s_axi_bready = 1;                 // Ready to accept write response
-        @(posedge clk);
-        while (!s_axi_bvalid) @(posedge clk);
-        $display("Write transaction complete. Response: %b", s_axi_bresp);
-        s_axi_bready = 0;
+            read_task(i, address); 
+        end
 
-        // Read transaction
-        $display("Starting read transaction...");
-        s_axi_arid = 8'h2;                // ID for read transaction
-        s_axi_araddr = 20'h00010;         // Target address
-        s_axi_arlen = 8'h00;              // Single transfer
-        s_axi_arvalid = 1;
+        $display("-------------------------------------------------------------------\n");
 
-        @(posedge clk);
-        while (!s_axi_arready) @(posedge clk);
-        s_axi_arvalid = 0;
+        // uut.mem1 출력
+        $display("uut.mem1 contents:");
+        for (k = 0; k < (2**VALID_ADDR_WIDTH); k = k + 32) begin
+            $display("%08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X", 
+                    uut.mem1[k], uut.mem1[k+1], uut.mem1[k+2], uut.mem1[k+3], uut.mem1[k+4], uut.mem1[k+5], uut.mem1[k+6], uut.mem1[k+7], 
+                    uut.mem1[k+8], uut.mem1[k+9], uut.mem1[k+10], uut.mem1[k+11], uut.mem1[k+12], uut.mem1[k+13], uut.mem1[k+14], uut.mem1[k+15],
+                    uut.mem1[k+16], uut.mem1[k+17], uut.mem1[k+18], uut.mem1[k+19], uut.mem1[k+20], uut.mem1[k+21], uut.mem1[k+22], uut.mem1[k+23],
+                    uut.mem1[k+24], uut.mem1[k+25], uut.mem1[k+26], uut.mem1[k+27], uut.mem1[k+28], uut.mem1[k+29], uut.mem1[k+30], uut.mem1[k+31]);
+        end
 
-        s_axi_rready = 1;                 // Ready to accept read data
-        @(posedge clk);
-        while (!s_axi_rvalid) @(posedge clk);
-        $display("Read transaction complete. Data: %h, Response: %b", s_axi_rdata, s_axi_rresp);
-        s_axi_rready = 0;
+        // uut.mem2 출력
+        $display("uut.mem2 contents:");
+        for (k = 0; k < (2**VALID_ADDR_WIDTH); k = k + 32) begin
+            $display("%08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X %08X", 
+                    uut.mem2[k], uut.mem2[k+1], uut.mem2[k+2], uut.mem2[k+3], uut.mem2[k+4], uut.mem2[k+5], uut.mem2[k+6], uut.mem2[k+7], 
+                    uut.mem2[k+8], uut.mem2[k+9], uut.mem2[k+10], uut.mem2[k+11], uut.mem2[k+12], uut.mem2[k+13], uut.mem2[k+14], uut.mem2[k+15],
+                    uut.mem2[k+16], uut.mem2[k+17], uut.mem2[k+18], uut.mem2[k+19], uut.mem2[k+20], uut.mem2[k+21], uut.mem2[k+22], uut.mem2[k+23],
+                    uut.mem2[k+24], uut.mem2[k+25], uut.mem2[k+26], uut.mem2[k+27], uut.mem2[k+28], uut.mem2[k+29], uut.mem2[k+30], uut.mem2[k+31]);
+        end
+
+        $display("=============================================================================================");
+        $display("Non-zero mem1 contents:");
+        for (k = 0; k < (2**VALID_ADDR_WIDTH); k = k + 1) begin
+            if (uut.mem1[k] != 0) begin
+                $display("mem1[%04X] = 0x%08X", k, uut.mem1[k]);
+            end
+        end
+        $display("=============================================================================================");
+
+        $display("=============================================================================================");
+        $display("Non-zero mem2 contents:");
+        for (k = 0; k < (2**VALID_ADDR_WIDTH); k = k + 1) begin
+            if (uut.mem2[k] != 0) begin
+                $display("mem2[%04X] = 0x%08X", k, uut.mem2[k]);
+            end
+        end
+        $display("=============================================================================================");
 
         $finish;
     end
 
-  initial begin
-    $dumpfile("dimension_aligned_ws_sta_32x32x1x1x1_axi.vcd");
-    $dumpvars(0, tb_axi_top_32x32);
-  end
+     // Task for write operation
+    task write_task(input [ID_WIDTH-1:0] id, input [ADDR_WIDTH-1:0] addr, input [DATA_WIDTH-1:0] data);
+        begin
+            @(posedge clock);
+            s_axi_awid = id;
+            s_axi_awaddr = addr;
+            s_axi_awlen = 8'd0;
+            s_axi_awsize = 3'b010;
+            s_axi_awburst = 2'b01;
+            s_axi_awvalid = 1;
+            @(posedge clock);
+            while (!s_axi_awready) @(posedge clock);
+            s_axi_awvalid = 0;
+
+            s_axi_wdata = data;
+            s_axi_wstrb = {STRB_WIDTH{1'b1}};
+            s_axi_wlast = 1;
+            s_axi_wvalid = 1;
+            @(posedge clock);
+            while (!s_axi_wready) @(posedge clock);
+            s_axi_wvalid = 0;
+
+            s_axi_bready = 1;
+            @(posedge clock);
+            while (!s_axi_bvalid) @(posedge clock);
+            $display("Write [%04X] = 0x%08X", addr, data);
+            s_axi_bready = 0;
+        end
+    endtask
+
+    // Task for read operation
+    task read_task(input [ID_WIDTH-1:0] id, input [ADDR_WIDTH-1:0] addr);
+        begin
+            @(posedge clock);
+            s_axi_arid = id;
+            s_axi_araddr = addr;
+            s_axi_arlen = 8'd0;
+            s_axi_arsize = 3'b010;
+            s_axi_arburst = 2'b01;
+            s_axi_arvalid = 1;
+            @(posedge clock);
+            while (!s_axi_arready) @(posedge clock);
+            s_axi_arvalid = 0;
+
+            s_axi_rready = 1;
+            @(posedge clock);
+            while (!s_axi_rvalid) @(posedge clock);
+            $display("Read [%04X] = 0x%08X", addr, s_axi_rdata);
+            s_axi_rready = 0;
+        end
+    endtask
+
+    initial begin
+        $dumpfile("dimension_aligned_ws_sta_32x32x1x1x1_axi.vcd");
+        $dumpvars(0, tb_axi_top_32x32);
+    end
 
 
 endmodule
