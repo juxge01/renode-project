@@ -1,9 +1,0 @@
-# yosys script.
-read_verilog simple_adder.v
-read_verilog simple_adder1.v
-hierarchy -top your_top_module
-proc; opt; fsm; opt; memory; opt
-show -format dot -prefix simple_adder
-
-# .dot file rendering
-dot -Tpng simple_adder.dot -o simple_adder.png
