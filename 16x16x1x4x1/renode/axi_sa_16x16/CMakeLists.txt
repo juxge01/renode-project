@@ -13,7 +13,7 @@ set(VTOP ./src/axi_sa_16x16.v
 		 ./src/group_processing_element_47.sv  
 		 ./src/post_processor.sv          
 		 ./src/processing_element_512.sv
-		 ./src/dimension_aligned_ws_sta_16x16x1x4x1.sv  
+		 ./src/ws_sta_16x16x1x4x1.sv  
 		 ./src/group_processing_element_240.sv  
 		 ./src/group_processing_element_64.sv  
 		 ./src/pre_processor_a.sv         

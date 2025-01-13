@@ -1,0 +1,7 @@
+read_verilog  ../../src/basic/multiplier.sv
+read_verilog  ../../src/basic/processing_element.sv
+
+hierarchy -check -top processing_element
+
+proc; opt; fsm; opt; memory; opt
+show -format dot -prefix processing_element

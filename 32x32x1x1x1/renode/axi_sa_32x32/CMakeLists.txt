@@ -28,7 +28,7 @@ set(VTOP 	./src/axi_sa_32x32.v
 			./src/processing_element_1023.sv
 			./src/systolic_tensor_array.sv
 			./src/post_processor.sv
-			./src/dimension_aligned_ws_sta_32x32x1x1x1.sv
+			./src/ws_sta_32x32x1x1x1.sv
 )
 
 # C/C++ source files to be compiled

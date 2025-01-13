@@ -1,0 +1,11 @@
+read_verilog  ../../src/basic/multiplier.sv
+read_verilog  ../../src/basic/processing_element_64.sv
+read_verilog  ../../src/basic/group_processing_element_16.sv
+
+hierarchy -check -top group_processing_element_16
+
+proc; opt; fsm; opt; memory; opt
+
+opt -purge
+
+show -format dot -prefix group_processing_element_16
