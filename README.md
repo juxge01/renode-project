@@ -1,7 +1,7 @@
 ## Integrate systolic array - Renode
 
 #### Running Simulation
-Run in `model/sim/axi/iverilog`
+Run in `model/sim/axi/iverilog/`
 ```bash
 $ ./run.sh
 ```
@@ -15,6 +15,7 @@ $ gtkwave *.vcd
 ```
 
 #### Running libVtop.so
+Run in `renode/axi_sa_*/`
 ```bash
 $ mkdir build && cd build
 $ SRC_PATH=$(realpath ..)
@@ -26,12 +27,26 @@ $ cmake -DCMAKE_BUILD_TYPE=Release \
 ```
 
 #### Running Renode
-Run in 
+Run in `renode/`
 ```bash
-$ mkdir 
+$ ${RENODE_PATH}/renode platform_basic.resc
 ```
 
 #### Running Springbok
+If you revise the `sampels/util/util.c`,
 ```bash
-
+$ ./build_riscv.sh
 ```
+
+After that,
+```bash
+$ ./sim_springbok_*.sh $ELF_PATH
+```
+
+#### Additional prerequisites
+Once you have Python3 and `pip`, install additional modules:
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+
