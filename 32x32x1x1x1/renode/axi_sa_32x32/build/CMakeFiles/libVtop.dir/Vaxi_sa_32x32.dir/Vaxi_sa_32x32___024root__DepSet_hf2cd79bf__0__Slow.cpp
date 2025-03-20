@@ -10,8 +10,6 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___initial__TOP__0(Vaxi_sa_32x32___024r
     if (false && vlSelf) {}  // Prevent unused
     Vaxi_sa_32x32__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vaxi_sa_32x32___024root___initial__TOP__0\n"); );
-    // Init
-    IData/*31:0*/ axi_top_32x32__DOT__i;
     // Body
     vlSelf->s_axi_bresp = 0U;
     vlSelf->s_axi_rresp = 0U;
@@ -28,38 +26,48 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___initial__TOP__0(Vaxi_sa_32x32___024r
     vlSelf->axi_top_32x32__DOT__read_count_reg = 0U;
     vlSelf->axi_top_32x32__DOT__write_count_reg = 0U;
     vlSelf->axi_top_32x32__DOT__s_axi_rvalid_reg = 0U;
-    vlSelf->axi_top_32x32__DOT__read_state_reg = 0U;
+    vlSelf->axi_top_32x32__DOT__read_state = 0U;
     vlSelf->axi_top_32x32__DOT__s_axi_bvalid_reg = 0U;
-    vlSelf->axi_top_32x32__DOT__write_state_reg = 0U;
+    vlSelf->axi_top_32x32__DOT__write_state = 0U;
     vlSelf->axi_top_32x32__DOT__s_axi_arready_reg = 0U;
     vlSelf->axi_top_32x32__DOT__s_axi_awready_reg = 0U;
     vlSelf->axi_top_32x32__DOT__s_axi_wready_reg = 0U;
-    axi_top_32x32__DOT__i = 0U;
-    while (VL_GTS_III(32, 0x40000U, axi_top_32x32__DOT__i)) {
-        vlSelf->axi_top_32x32__DOT__j = axi_top_32x32__DOT__i;
-        while (VL_LTS_III(32, vlSelf->axi_top_32x32__DOT__j, 
-                          ((IData)(0x200U) + axi_top_32x32__DOT__i))) {
-            vlSelf->axi_top_32x32__DOT__mem1[(0x3ffffU 
-                                              & vlSelf->axi_top_32x32__DOT__j)] = 0U;
-            vlSelf->axi_top_32x32__DOT__j = ((IData)(1U) 
-                                             + vlSelf->axi_top_32x32__DOT__j);
-        }
-        axi_top_32x32__DOT__i = ((IData)(0x200U) + axi_top_32x32__DOT__i);
-    }
-    axi_top_32x32__DOT__i = 0U;
-    while (VL_GTS_III(32, 0x40000U, axi_top_32x32__DOT__i)) {
-        vlSelf->axi_top_32x32__DOT__j = axi_top_32x32__DOT__i;
-        while (VL_LTS_III(32, vlSelf->axi_top_32x32__DOT__j, 
-                          ((IData)(0x200U) + axi_top_32x32__DOT__i))) {
-            vlSelf->axi_top_32x32__DOT__mem2[(0x3ffffU 
-                                              & vlSelf->axi_top_32x32__DOT__j)] = 0U;
-            vlSelf->axi_top_32x32__DOT__j = ((IData)(1U) 
-                                             + vlSelf->axi_top_32x32__DOT__j);
-        }
-        axi_top_32x32__DOT__i = ((IData)(0x200U) + axi_top_32x32__DOT__i);
-    }
+    vlSelf->axi_top_32x32__DOT__prev_state = 0U;
     vlSelf->axi_top_32x32__DOT__read_addr_reg = 0U;
     vlSelf->axi_top_32x32__DOT__write_addr_reg = 0U;
+    vlSelf->axi_top_32x32__DOT__current_state = 0U;
+    vlSelf->axi_top_32x32__DOT__state_next = 0U;
+    vlSelf->axi_top_32x32__DOT__data_mem[0U] = 0U;
+    vlSelf->axi_top_32x32__DOT__i = 1U;
+    while (VL_GTS_III(32, 0x40000U, vlSelf->axi_top_32x32__DOT__i)) {
+        vlSelf->axi_top_32x32__DOT__j = vlSelf->axi_top_32x32__DOT__i;
+        while (VL_LTS_III(32, vlSelf->axi_top_32x32__DOT__j, 
+                          ((IData)(0x200U) + vlSelf->axi_top_32x32__DOT__i))) {
+            vlSelf->axi_top_32x32__DOT____Vlvbound_h755d41b0__0 = 0U;
+            if (VL_LIKELY((0x40000U >= (0x7ffffU & vlSelf->axi_top_32x32__DOT__j)))) {
+                vlSelf->axi_top_32x32__DOT__data_mem[(0x7ffffU 
+                                                      & vlSelf->axi_top_32x32__DOT__j)] 
+                    = vlSelf->axi_top_32x32__DOT____Vlvbound_h755d41b0__0;
+            }
+            vlSelf->axi_top_32x32__DOT__j = ((IData)(1U) 
+                                             + vlSelf->axi_top_32x32__DOT__j);
+        }
+        vlSelf->axi_top_32x32__DOT__i = ((IData)(0x200U) 
+                                         + vlSelf->axi_top_32x32__DOT__i);
+    }
+    vlSelf->axi_top_32x32__DOT__i = 0U;
+    while (VL_GTS_III(32, 0x40000U, vlSelf->axi_top_32x32__DOT__i)) {
+        vlSelf->axi_top_32x32__DOT__j = vlSelf->axi_top_32x32__DOT__i;
+        while (VL_LTS_III(32, vlSelf->axi_top_32x32__DOT__j, 
+                          ((IData)(0x200U) + vlSelf->axi_top_32x32__DOT__i))) {
+            vlSelf->axi_top_32x32__DOT__output_mem[(0x3ffffU 
+                                                    & vlSelf->axi_top_32x32__DOT__j)] = 0U;
+            vlSelf->axi_top_32x32__DOT__j = ((IData)(1U) 
+                                             + vlSelf->axi_top_32x32__DOT__j);
+        }
+        vlSelf->axi_top_32x32__DOT__i = ((IData)(0x200U) 
+                                         + vlSelf->axi_top_32x32__DOT__i);
+    }
 }
 
 VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024root* vlSelf) {
@@ -67,6 +75,7 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
     Vaxi_sa_32x32__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vaxi_sa_32x32___024root___settle__TOP__0\n"); );
     // Body
+    vlSelf->axi_top_32x32__DOT__i = 0x20U;
     vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_32__io_inputC 
         = ((0x10000U & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element__DOT__io_outputC_REG) 
                         << 1U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element__DOT__io_outputC_REG));
@@ -579,6 +588,230 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
     vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_512__io_inputC 
         = ((0x100000U & (vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_480__DOT__io_outputC_REG 
                          << 1U)) | (0xfffffU & vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_480__DOT__io_outputC_REG));
+    vlSelf->axi_top_32x32__DOT__inputA[0U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0U]);
+    vlSelf->axi_top_32x32__DOT__inputA[1U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [1U]);
+    vlSelf->axi_top_32x32__DOT__inputA[2U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [2U]);
+    vlSelf->axi_top_32x32__DOT__inputA[3U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [3U]);
+    vlSelf->axi_top_32x32__DOT__inputA[4U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [4U]);
+    vlSelf->axi_top_32x32__DOT__inputA[5U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [5U]);
+    vlSelf->axi_top_32x32__DOT__inputA[6U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [6U]);
+    vlSelf->axi_top_32x32__DOT__inputA[7U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [7U]);
+    vlSelf->axi_top_32x32__DOT__inputA[8U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [8U]);
+    vlSelf->axi_top_32x32__DOT__inputA[9U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [9U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0xaU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0xaU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0xbU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0xbU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0xcU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0xcU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0xdU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0xdU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0xeU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0xeU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0xfU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0xfU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x10U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x10U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x11U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x11U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x12U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x12U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x13U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x13U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x14U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x14U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x15U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x15U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x16U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x16U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x17U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x17U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x18U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x18U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x19U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x19U]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x1aU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x1aU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x1bU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x1bU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x1cU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x1cU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x1dU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x1dU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x1eU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x1eU]);
+    vlSelf->axi_top_32x32__DOT__inputA[0x1fU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x1fU]);
+    vlSelf->axi_top_32x32__DOT__propagateB[0U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[1U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[2U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[3U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[4U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[5U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[6U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[7U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[8U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[9U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0xaU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0xbU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0xcU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0xdU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0xeU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0xfU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x10U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x11U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x12U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x13U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x14U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x15U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x16U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x17U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x18U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x19U] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x1aU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x1bU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x1cU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x1dU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x1eU] = 1U;
+    vlSelf->axi_top_32x32__DOT__propagateB[0x1fU] = 1U;
+    vlSelf->axi_top_32x32__DOT__inputB[0U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x20U]);
+    vlSelf->axi_top_32x32__DOT__inputB[1U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x21U]);
+    vlSelf->axi_top_32x32__DOT__inputB[2U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x22U]);
+    vlSelf->axi_top_32x32__DOT__inputB[3U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x23U]);
+    vlSelf->axi_top_32x32__DOT__inputB[4U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x24U]);
+    vlSelf->axi_top_32x32__DOT__inputB[5U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x25U]);
+    vlSelf->axi_top_32x32__DOT__inputB[6U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x26U]);
+    vlSelf->axi_top_32x32__DOT__inputB[7U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x27U]);
+    vlSelf->axi_top_32x32__DOT__inputB[8U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x28U]);
+    vlSelf->axi_top_32x32__DOT__inputB[9U] = (0xffU 
+                                              & vlSelf->axi_top_32x32__DOT__proc_mem
+                                              [0x29U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0xaU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0x2aU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0xbU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0x2bU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0xcU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0x2cU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0xdU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0x2dU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0xeU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0x2eU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0xfU] = (0xffU 
+                                                & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                [0x2fU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x10U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x30U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x11U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x31U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x12U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x32U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x13U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x33U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x14U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x34U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x15U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x35U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x16U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x36U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x17U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x37U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x18U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x38U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x19U] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x39U]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x1aU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x3aU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x1bU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x3bU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x1cU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x3cU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x1dU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x3dU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x1eU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x3eU]);
+    vlSelf->axi_top_32x32__DOT__inputB[0x1fU] = (0xffU 
+                                                 & vlSelf->axi_top_32x32__DOT__proc_mem
+                                                 [0x3fU]);
     vlSelf->s_axi_rdata = vlSelf->axi_top_32x32__DOT__s_axi_rdata_reg;
     vlSelf->s_axi_rid = vlSelf->axi_top_32x32__DOT__s_axi_rid_reg;
     vlSelf->s_axi_rlast = vlSelf->axi_top_32x32__DOT__s_axi_rlast_reg;
@@ -594,10 +827,26 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
     vlSelf->s_axi_arready = vlSelf->axi_top_32x32__DOT__s_axi_arready_reg;
     vlSelf->s_axi_awready = vlSelf->axi_top_32x32__DOT__s_axi_awready_reg;
     vlSelf->s_axi_wready = vlSelf->axi_top_32x32__DOT__s_axi_wready_reg;
+    vlSelf->axi_top_32x32__DOT__state_next = vlSelf->axi_top_32x32__DOT__current_state;
+    if ((4U & (IData)(vlSelf->axi_top_32x32__DOT__current_state))) {
+        vlSelf->axi_top_32x32__DOT__state_next = 0U;
+    } else if ((2U & (IData)(vlSelf->axi_top_32x32__DOT__current_state))) {
+        if ((1U & (IData)(vlSelf->axi_top_32x32__DOT__current_state))) {
+            vlSelf->axi_top_32x32__DOT__state_next = 0U;
+        } else if (vlSelf->axi_top_32x32__DOT__stable_outputC_result) {
+            vlSelf->axi_top_32x32__DOT__state_next = 3U;
+        }
+    } else if ((1U & (IData)(vlSelf->axi_top_32x32__DOT__current_state))) {
+        if ((0U < vlSelf->axi_top_32x32__DOT__final_time)) {
+            vlSelf->axi_top_32x32__DOT__state_next = 2U;
+        }
+    } else if (vlSelf->s_axi_wvalid) {
+        vlSelf->axi_top_32x32__DOT__state_next = 1U;
+    }
     vlSelf->axi_top_32x32__DOT__read_id_next = vlSelf->axi_top_32x32__DOT__read_id_reg;
     vlSelf->axi_top_32x32__DOT__read_size_next = vlSelf->axi_top_32x32__DOT__read_size_reg;
     vlSelf->axi_top_32x32__DOT__read_burst_next = vlSelf->axi_top_32x32__DOT__read_burst_reg;
-    if ((1U & (~ (IData)(vlSelf->axi_top_32x32__DOT__read_state_reg)))) {
+    if ((1U & (~ (IData)(vlSelf->axi_top_32x32__DOT__read_state)))) {
         if (((IData)(vlSelf->s_axi_arready) & (IData)(vlSelf->s_axi_arvalid))) {
             vlSelf->axi_top_32x32__DOT__read_id_next 
                 = vlSelf->s_axi_arid;
@@ -613,8 +862,8 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
     vlSelf->axi_top_32x32__DOT__read_state_next = 0U;
     vlSelf->axi_top_32x32__DOT__read_count_next = vlSelf->axi_top_32x32__DOT__read_count_reg;
     vlSelf->axi_top_32x32__DOT__read_addr_next = vlSelf->axi_top_32x32__DOT__read_addr_reg;
-    if (vlSelf->axi_top_32x32__DOT__read_state_reg) {
-        if (vlSelf->axi_top_32x32__DOT__read_state_reg) {
+    if (vlSelf->axi_top_32x32__DOT__read_state) {
+        if (vlSelf->axi_top_32x32__DOT__read_state) {
             if ((1U & ((IData)(vlSelf->s_axi_rready) 
                        | (~ (IData)(vlSelf->axi_top_32x32__DOT__s_axi_rvalid_reg))))) {
                 vlSelf->axi_top_32x32__DOT__mem_rd_en = 1U;
@@ -665,8 +914,8 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
          & (~ (IData)(vlSelf->s_axi_bready)));
     vlSelf->axi_top_32x32__DOT__s_axi_awready_next = 0U;
     vlSelf->axi_top_32x32__DOT__s_axi_bid_next = vlSelf->axi_top_32x32__DOT__s_axi_bid_reg;
-    if ((0U != (IData)(vlSelf->axi_top_32x32__DOT__write_state_reg))) {
-        if ((1U == (IData)(vlSelf->axi_top_32x32__DOT__write_state_reg))) {
+    if ((0U != (IData)(vlSelf->axi_top_32x32__DOT__write_state))) {
+        if ((1U == (IData)(vlSelf->axi_top_32x32__DOT__write_state))) {
             if (((IData)(vlSelf->s_axi_wready) & (IData)(vlSelf->s_axi_wvalid))) {
                 vlSelf->axi_top_32x32__DOT__mem_wr_en = 1U;
                 if ((0U >= (IData)(vlSelf->axi_top_32x32__DOT__write_count_reg))) {
@@ -678,7 +927,7 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
                     }
                 }
             }
-        } else if ((2U == (IData)(vlSelf->axi_top_32x32__DOT__write_state_reg))) {
+        } else if ((2U == (IData)(vlSelf->axi_top_32x32__DOT__write_state))) {
             if ((1U & ((IData)(vlSelf->s_axi_bready) 
                        | (~ (IData)(vlSelf->s_axi_bvalid))))) {
                 vlSelf->axi_top_32x32__DOT__s_axi_bvalid_next = 1U;
@@ -689,7 +938,7 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
     }
     vlSelf->axi_top_32x32__DOT__write_state_next = 0U;
     vlSelf->axi_top_32x32__DOT__write_addr_next = vlSelf->axi_top_32x32__DOT__write_addr_reg;
-    if ((0U == (IData)(vlSelf->axi_top_32x32__DOT__write_state_reg))) {
+    if ((0U == (IData)(vlSelf->axi_top_32x32__DOT__write_state))) {
         vlSelf->axi_top_32x32__DOT__s_axi_awready_next = 1U;
         if (((IData)(vlSelf->s_axi_awready) & (IData)(vlSelf->s_axi_awvalid))) {
             vlSelf->axi_top_32x32__DOT__write_burst_next 
@@ -710,7 +959,7 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
         } else {
             vlSelf->axi_top_32x32__DOT__write_state_next = 0U;
         }
-    } else if ((1U == (IData)(vlSelf->axi_top_32x32__DOT__write_state_reg))) {
+    } else if ((1U == (IData)(vlSelf->axi_top_32x32__DOT__write_state))) {
         vlSelf->axi_top_32x32__DOT__s_axi_wready_next = 1U;
         if (((IData)(vlSelf->s_axi_wready) & (IData)(vlSelf->s_axi_wvalid))) {
             if ((0U >= (IData)(vlSelf->axi_top_32x32__DOT__write_count_reg))) {
@@ -736,7 +985,7 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___settle__TOP__0(Vaxi_sa_32x32___024ro
         } else {
             vlSelf->axi_top_32x32__DOT__write_state_next = 1U;
         }
-    } else if ((2U == (IData)(vlSelf->axi_top_32x32__DOT__write_state_reg))) {
+    } else if ((2U == (IData)(vlSelf->axi_top_32x32__DOT__write_state))) {
         if ((1U & ((IData)(vlSelf->s_axi_bready) | 
                    (~ (IData)(vlSelf->s_axi_bvalid))))) {
             vlSelf->axi_top_32x32__DOT__s_axi_awready_next = 1U;
@@ -813,9 +1062,9 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___ctor_var_reset(Vaxi_sa_32x32___024ro
     vlSelf->s_axi_rlast = VL_RAND_RESET_I(1);
     vlSelf->s_axi_rvalid = VL_RAND_RESET_I(1);
     vlSelf->s_axi_rready = VL_RAND_RESET_I(1);
-    vlSelf->axi_top_32x32__DOT__read_state_reg = VL_RAND_RESET_I(1);
+    vlSelf->axi_top_32x32__DOT__read_state = VL_RAND_RESET_I(1);
     vlSelf->axi_top_32x32__DOT__read_state_next = VL_RAND_RESET_I(1);
-    vlSelf->axi_top_32x32__DOT__write_state_reg = VL_RAND_RESET_I(2);
+    vlSelf->axi_top_32x32__DOT__write_state = VL_RAND_RESET_I(2);
     vlSelf->axi_top_32x32__DOT__write_state_next = VL_RAND_RESET_I(2);
     vlSelf->axi_top_32x32__DOT__mem_wr_en = VL_RAND_RESET_I(1);
     vlSelf->axi_top_32x32__DOT__mem_rd_en = VL_RAND_RESET_I(1);
@@ -856,27 +1105,50 @@ VL_ATTR_COLD void Vaxi_sa_32x32___024root___ctor_var_reset(Vaxi_sa_32x32___024ro
     vlSelf->axi_top_32x32__DOT__s_axi_rlast_next = VL_RAND_RESET_I(1);
     vlSelf->axi_top_32x32__DOT__s_axi_rvalid_reg = VL_RAND_RESET_I(1);
     vlSelf->axi_top_32x32__DOT__s_axi_rvalid_next = VL_RAND_RESET_I(1);
-    for (int __Vi0=0; __Vi0<262144; ++__Vi0) {
-        vlSelf->axi_top_32x32__DOT__mem1[__Vi0] = VL_RAND_RESET_I(32);
+    for (int __Vi0=0; __Vi0<262145; ++__Vi0) {
+        vlSelf->axi_top_32x32__DOT__data_mem[__Vi0] = VL_RAND_RESET_I(32);
     }
     for (int __Vi0=0; __Vi0<262144; ++__Vi0) {
-        vlSelf->axi_top_32x32__DOT__mem2[__Vi0] = VL_RAND_RESET_I(32);
+        vlSelf->axi_top_32x32__DOT__output_mem[__Vi0] = VL_RAND_RESET_I(32);
     }
+    vlSelf->axi_top_32x32__DOT__i = VL_RAND_RESET_I(32);
     vlSelf->axi_top_32x32__DOT__j = VL_RAND_RESET_I(32);
+    vlSelf->axi_top_32x32__DOT__counter = VL_RAND_RESET_I(32);
+    for (int __Vi0=0; __Vi0<32; ++__Vi0) {
+        vlSelf->axi_top_32x32__DOT__prev_outputC[__Vi0] = VL_RAND_RESET_I(20);
+    }
     for (int __Vi0=0; __Vi0<32; ++__Vi0) {
         vlSelf->axi_top_32x32__DOT__inputA[__Vi0] = VL_RAND_RESET_I(8);
     }
     for (int __Vi0=0; __Vi0<32; ++__Vi0) {
         vlSelf->axi_top_32x32__DOT__inputB[__Vi0] = VL_RAND_RESET_I(8);
     }
-    for (int __Vi0=0; __Vi0<33; ++__Vi0) {
+    for (int __Vi0=0; __Vi0<32; ++__Vi0) {
         vlSelf->axi_top_32x32__DOT__propagateB[__Vi0] = VL_RAND_RESET_I(1);
     }
     for (int __Vi0=0; __Vi0<32; ++__Vi0) {
         vlSelf->axi_top_32x32__DOT__outputC[__Vi0] = VL_RAND_RESET_I(21);
     }
-    vlSelf->axi_top_32x32__DOT__found_n0 = VL_RAND_RESET_I(32);
-    vlSelf->axi_top_32x32__DOT____Vlvbound_h542ae0dd__1 = VL_RAND_RESET_I(1);
+    vlSelf->axi_top_32x32__DOT__stable_outputC_result = VL_RAND_RESET_I(1);
+    for (int __Vi0=0; __Vi0<100; ++__Vi0) {
+        vlSelf->axi_top_32x32__DOT__proc_mem[__Vi0] = VL_RAND_RESET_I(32);
+    }
+    vlSelf->axi_top_32x32__DOT__proc_write_index = VL_RAND_RESET_I(8);
+    vlSelf->axi_top_32x32__DOT__current_state = VL_RAND_RESET_I(3);
+    vlSelf->axi_top_32x32__DOT__state_next = VL_RAND_RESET_I(3);
+    vlSelf->axi_top_32x32__DOT__prev_wvalid = VL_RAND_RESET_I(1);
+    vlSelf->axi_top_32x32__DOT__start_time = VL_RAND_RESET_I(32);
+    vlSelf->axi_top_32x32__DOT__final_time = VL_RAND_RESET_I(32);
+    vlSelf->axi_top_32x32__DOT__input_detected = VL_RAND_RESET_I(1);
+    vlSelf->axi_top_32x32__DOT__output_detected = VL_RAND_RESET_I(1);
+    vlSelf->axi_top_32x32__DOT__final_output_detected = VL_RAND_RESET_I(1);
+    vlSelf->axi_top_32x32__DOT__stable_count = VL_RAND_RESET_I(6);
+    vlSelf->axi_top_32x32__DOT__stable_cycles = VL_RAND_RESET_I(6);
+    vlSelf->axi_top_32x32__DOT__prev_state = VL_RAND_RESET_I(3);
+    vlSelf->axi_top_32x32__DOT____Vlvbound_h755d41b0__0 = VL_RAND_RESET_I(32);
+    vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0 = VL_RAND_RESET_I(8);
+    vlSelf->axi_top_32x32__DOT____Vlvbound_hcfc29dcf__0 = VL_RAND_RESET_I(32);
+    vlSelf->axi_top_32x32__DOT____Vlvbound_hc8009c02__0 = VL_RAND_RESET_I(32);
     vlSelf->axi_top_32x32__DOT__uut__DOT__REG_0 = VL_RAND_RESET_I(1);
     vlSelf->axi_top_32x32__DOT__uut__DOT__REG_1 = VL_RAND_RESET_I(1);
     vlSelf->axi_top_32x32__DOT__uut__DOT__REG_2 = VL_RAND_RESET_I(1);

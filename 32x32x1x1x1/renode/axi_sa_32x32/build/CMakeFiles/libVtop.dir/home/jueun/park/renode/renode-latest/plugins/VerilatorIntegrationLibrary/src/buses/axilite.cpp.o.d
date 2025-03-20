@@ -3,9 +3,9 @@ CMakeFiles/libVtop.dir/home/jueun/park/renode/renode-latest/plugins/VerilatorInt
  /usr/include/stdc-predef.h \
  /home/jueun/park/renode/renode-latest/plugins/VerilatorIntegrationLibrary/src/buses/axilite.h \
  /home/jueun/park/renode/renode-latest/plugins/VerilatorIntegrationLibrary/src/buses/bus.h \
- /usr/include/c++/11/cstdint \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+ /usr/include/c++/10/cstdint \
+ /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -13,9 +13,8 @@ CMakeFiles/libVtop.dir/home/jueun/park/renode/renode-latest/plugins/VerilatorInt
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/c++/10/bits/cpu_defines.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \

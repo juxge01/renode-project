@@ -296,9 +296,9 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         VL_OUT8(s_axi_rlast,0,0);
         VL_OUT8(s_axi_rvalid,0,0);
         VL_IN8(s_axi_rready,0,0);
-        CData/*0:0*/ axi_top_16x16__DOT__read_state_reg;
+        CData/*0:0*/ axi_top_16x16__DOT__read_state;
         CData/*0:0*/ axi_top_16x16__DOT__read_state_next;
-        CData/*1:0*/ axi_top_16x16__DOT__write_state_reg;
+        CData/*1:0*/ axi_top_16x16__DOT__write_state;
         CData/*1:0*/ axi_top_16x16__DOT__write_state_next;
         CData/*0:0*/ axi_top_16x16__DOT__mem_wr_en;
         CData/*0:0*/ axi_top_16x16__DOT__mem_rd_en;
@@ -336,6 +336,18 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*0:0*/ axi_top_16x16__DOT__s_axi_rlast_next;
         CData/*0:0*/ axi_top_16x16__DOT__s_axi_rvalid_reg;
         CData/*0:0*/ axi_top_16x16__DOT__s_axi_rvalid_next;
+        CData/*0:0*/ axi_top_16x16__DOT__stable_outputC_result;
+        CData/*7:0*/ axi_top_16x16__DOT__proc_write_index;
+        CData/*2:0*/ axi_top_16x16__DOT__current_state;
+        CData/*2:0*/ axi_top_16x16__DOT__state_next;
+        CData/*0:0*/ axi_top_16x16__DOT__prev_wvalid;
+        CData/*0:0*/ axi_top_16x16__DOT__input_detected;
+        CData/*0:0*/ axi_top_16x16__DOT__output_detected;
+        CData/*0:0*/ axi_top_16x16__DOT__final_output_detected;
+        CData/*5:0*/ axi_top_16x16__DOT__stable_count;
+        CData/*5:0*/ axi_top_16x16__DOT__stable_cycles;
+        CData/*2:0*/ axi_top_16x16__DOT__prev_state;
+        CData/*7:0*/ axi_top_16x16__DOT____Vlvbound_h680fd9cf__0;
         CData/*0:0*/ axi_top_16x16__DOT__uut__DOT__REG_0;
         CData/*0:0*/ axi_top_16x16__DOT__uut__DOT__REG_1;
         CData/*0:0*/ axi_top_16x16__DOT__uut__DOT__REG_2;
@@ -381,6 +393,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_6_r_5;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_6_r_6;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_7_r;
+    };
+    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_7_r_1;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_7_r_2;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_7_r_3;
@@ -393,8 +407,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_8_r_2;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_8_r_3;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_8_r_4;
-    };
-    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_8_r_5;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_8_r_6;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_8_r_7;
@@ -447,6 +459,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_12_r_12;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_1;
+    };
+    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_2;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_3;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_4;
@@ -459,8 +473,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_11;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_12;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_13;
-    };
-    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_14_r;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_14_r_1;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputA__DOT__io_output_14_r_2;
@@ -513,6 +525,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_18_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_19_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_20_REG;
+    };
+    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_21_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_22_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_23_REG;
@@ -525,8 +539,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_30_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_31_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_32_REG;
-    };
-    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_33_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_34_REG;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__preProcessorInputB__DOT__io_output_35_REG;
@@ -579,6 +591,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_79__DOT__vectorProcessingElementVector_0_2__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_79__DOT__vectorProcessingElementVector_0_3__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_0__DOT__registerB_0;
+    };
+    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_1__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_2__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_3__DOT__registerB_0;
@@ -591,8 +605,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_127__DOT__vectorProcessingElementVector_0_2__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_127__DOT__vectorProcessingElementVector_0_3__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__vectorProcessingElementVector_0_0__DOT__registerB_0;
-    };
-    struct {
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__vectorProcessingElementVector_0_1__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__vectorProcessingElementVector_0_2__DOT__registerB_0;
         CData/*7:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__vectorProcessingElementVector_0_3__DOT__registerB_0;
@@ -645,6 +657,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_47__DOT__vectorProcessingElementVector_0_0__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_47__DOT__vectorProcessingElementVector_0_1__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_47__DOT__vectorProcessingElementVector_0_2__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
+    };
+    struct {
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_47__DOT__vectorProcessingElementVector_0_3__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_63__DOT__vectorProcessingElementVector_0_0__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_63__DOT__vectorProcessingElementVector_0_1__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
@@ -657,8 +671,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_0__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_1__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_2__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
-    };
-    struct {
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_3__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_111__DOT__vectorProcessingElementVector_0_0__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         SData/*15:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_111__DOT__vectorProcessingElementVector_0_1__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
@@ -709,8 +721,17 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__write_addr_reg;
         IData/*19:0*/ axi_top_16x16__DOT__write_addr_next;
         IData/*31:0*/ axi_top_16x16__DOT__s_axi_rdata_reg;
+        IData/*31:0*/ axi_top_16x16__DOT__i;
         IData/*31:0*/ axi_top_16x16__DOT__j;
-        IData/*31:0*/ axi_top_16x16__DOT__found_n0;
+    };
+    struct {
+        IData/*31:0*/ axi_top_16x16__DOT__counter;
+        IData/*31:0*/ axi_top_16x16__DOT__start_time;
+        IData/*31:0*/ axi_top_16x16__DOT__final_time;
+        IData/*31:0*/ axi_top_16x16__DOT__start_count;
+        IData/*31:0*/ axi_top_16x16__DOT____Vlvbound_h755d41b0__0;
+        IData/*31:0*/ axi_top_16x16__DOT____Vlvbound_hcfc29dcf__0;
+        IData/*31:0*/ axi_top_16x16__DOT____Vlvbound_hc8009c02__0;
         IData/*16:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_31__io_inputC_3;
         IData/*16:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_31__io_inputC_2;
         IData/*16:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_31__io_inputC_1;
@@ -723,8 +744,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*18:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_79__io_inputC_2;
         IData/*18:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_79__io_inputC_1;
         IData/*18:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_79__io_inputC_0;
-    };
-    struct {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_143__io_inputC_3;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_143__io_inputC_2;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__group_processing_element_143__io_inputC_1;
@@ -770,6 +789,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_2__DOT__io_outputC_REG;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_95__DOT__vectorProcessingElementVector_0_3__DOT__io_outputC_REG;
         IData/*18:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_111__DOT__io_outputC_0_REG;
+    };
+    struct {
         IData/*18:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_111__DOT__io_outputC_1_REG;
         IData/*18:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_111__DOT__io_outputC_2_REG;
         IData/*18:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_111__DOT__io_outputC_3_REG;
@@ -789,8 +810,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__io_outputC_1_REG;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__io_outputC_2_REG;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__io_outputC_3_REG;
-    };
-    struct {
         IData/*20:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__vectorProcessingElementVector_0_0__DOT__io_outputC_REG;
         IData/*20:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__vectorProcessingElementVector_0_1__DOT__io_outputC_REG;
         IData/*20:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_143__DOT__vectorProcessingElementVector_0_2__DOT__io_outputC_REG;
@@ -836,6 +855,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*20:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_223__DOT__vectorProcessingElementVector_0_2__DOT__io_outputC_REG;
         IData/*20:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_223__DOT__vectorProcessingElementVector_0_3__DOT__io_outputC_REG;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_239__DOT__io_outputC_0_REG;
+    };
+    struct {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_239__DOT__io_outputC_1_REG;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_239__DOT__io_outputC_2_REG;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__systolicTensorArray__DOT__group_processing_element_239__DOT__io_outputC_3_REG;
@@ -855,8 +876,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_0_r_1;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_0_r_2;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_0_r_3;
-    };
-    struct {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_0_r_4;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_0_r_5;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_0_r_6;
@@ -902,6 +921,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_3_r_1;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_3_r_2;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_3_r_3;
+    };
+    struct {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_3_r_4;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_3_r_5;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_3_r_6;
@@ -921,8 +942,6 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_4_r_7;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_4_r_8;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_4_r_9;
-    };
-    struct {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_4_r_10;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_4_r_11;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_5_r;
@@ -968,6 +987,8 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_9_r_2;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_9_r_3;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_9_r_4;
+    };
+    struct {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_9_r_5;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_9_r_6;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_10_r;
@@ -987,18 +1008,18 @@ class Vaxi_sa_16x16___024root final : public VerilatedModule {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_12_r_3;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_13_r;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_13_r_1;
-    };
-    struct {
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_13_r_2;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_14_r;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_14_r_1;
         IData/*19:0*/ axi_top_16x16__DOT__uut__DOT__postProcessor__DOT__io_output_15_r;
-        VlUnpacked<IData/*31:0*/, 262144> axi_top_16x16__DOT__mem1;
-        VlUnpacked<IData/*31:0*/, 262144> axi_top_16x16__DOT__mem2;
+        VlUnpacked<IData/*31:0*/, 262145> axi_top_16x16__DOT__data_mem;
+        VlUnpacked<IData/*31:0*/, 262144> axi_top_16x16__DOT__output_mem;
+        VlUnpacked<IData/*19:0*/, 64> axi_top_16x16__DOT__prev_outputC;
         VlUnpacked<CData/*7:0*/, 16> axi_top_16x16__DOT__inputA;
         VlUnpacked<CData/*7:0*/, 64> axi_top_16x16__DOT__inputB;
         VlUnpacked<CData/*0:0*/, 16> axi_top_16x16__DOT__propagateB;
         VlUnpacked<IData/*19:0*/, 64> axi_top_16x16__DOT__outputC;
+        VlUnpacked<IData/*31:0*/, 100> axi_top_16x16__DOT__proc_mem;
     };
 
     // INTERNAL VARIABLES

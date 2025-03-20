@@ -11,29 +11,67 @@ VL_INLINE_OPT void Vaxi_sa_32x32___024root___sequent__TOP__2(Vaxi_sa_32x32___024
     Vaxi_sa_32x32__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vaxi_sa_32x32___024root___sequent__TOP__2\n"); );
     // Init
-    IData/*31:0*/ axi_top_32x32__DOT__i;
-    IData/*17:0*/ __Vdlyvdim0__axi_top_32x32__DOT__mem1__v0;
-    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__mem1__v0;
-    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__mem1__v0;
-    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__mem1__v0;
-    IData/*17:0*/ __Vdlyvdim0__axi_top_32x32__DOT__mem1__v1;
-    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__mem1__v1;
-    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__mem1__v1;
-    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__mem1__v1;
-    IData/*17:0*/ __Vdlyvdim0__axi_top_32x32__DOT__mem1__v2;
-    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__mem1__v2;
-    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__mem1__v2;
-    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__mem1__v2;
-    IData/*17:0*/ __Vdlyvdim0__axi_top_32x32__DOT__mem1__v3;
-    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__mem1__v3;
-    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__mem1__v3;
-    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__mem1__v3;
+    IData/*18:0*/ __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v0;
+    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v0;
+    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__data_mem__v0;
+    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__data_mem__v0;
+    IData/*18:0*/ __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v1;
+    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v1;
+    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__data_mem__v1;
+    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__data_mem__v1;
+    IData/*18:0*/ __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v2;
+    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v2;
+    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__data_mem__v2;
+    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__data_mem__v2;
+    IData/*18:0*/ __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v3;
+    CData/*4:0*/ __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v3;
+    CData/*7:0*/ __Vdlyvval__axi_top_32x32__DOT__data_mem__v3;
+    CData/*0:0*/ __Vdlyvset__axi_top_32x32__DOT__data_mem__v3;
+    IData/*31:0*/ __Vdlyvval__axi_top_32x32__DOT__data_mem__v4;
     // Body
-    __Vdlyvset__axi_top_32x32__DOT__mem1__v0 = 0U;
-    __Vdlyvset__axi_top_32x32__DOT__mem1__v1 = 0U;
-    __Vdlyvset__axi_top_32x32__DOT__mem1__v2 = 0U;
-    __Vdlyvset__axi_top_32x32__DOT__mem1__v3 = 0U;
-    axi_top_32x32__DOT__i = 4U;
+    __Vdlyvset__axi_top_32x32__DOT__data_mem__v0 = 0U;
+    __Vdlyvset__axi_top_32x32__DOT__data_mem__v1 = 0U;
+    __Vdlyvset__axi_top_32x32__DOT__data_mem__v2 = 0U;
+    __Vdlyvset__axi_top_32x32__DOT__data_mem__v3 = 0U;
+    vlSelf->axi_top_32x32__DOT__i = 4U;
+    if (VL_UNLIKELY((3U == (IData)(vlSelf->axi_top_32x32__DOT__current_state)))) {
+        VL_WRITEF("\nComputation Complete. OutputC Values:\n");
+        vlSelf->axi_top_32x32__DOT__i = 0x20U;
+        VL_WRITEF("%08x %08x %08x %08x %08x %08x %08x %08x\n%08x %08x %08x %08x %08x %08x %08x %08x\n%08x %08x %08x %08x %08x %08x %08x %08x\n%08x %08x %08x %08x %08x %08x %08x %08x\n",
+                  32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [1U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [2U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [3U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [4U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [5U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [6U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [7U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [8U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [9U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0xaU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0xbU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0xcU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0xdU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0xeU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0xfU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x10U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x11U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x12U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x13U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x14U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x15U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x16U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x17U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x18U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x19U],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x1aU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x1bU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x1cU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x1dU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x1eU],32,vlSelf->axi_top_32x32__DOT__output_mem
+                  [0x1fU]);
+    }
     vlSelf->axi_top_32x32__DOT__s_axi_rlast_reg = vlSelf->axi_top_32x32__DOT__s_axi_rlast_next;
     vlSelf->axi_top_32x32__DOT__s_axi_rid_reg = vlSelf->axi_top_32x32__DOT__s_axi_rid_next;
     vlSelf->axi_top_32x32__DOT__read_id_reg = vlSelf->axi_top_32x32__DOT__read_id_next;
@@ -45,60 +83,20 @@ VL_INLINE_OPT void Vaxi_sa_32x32___024root___sequent__TOP__2(Vaxi_sa_32x32___024
     vlSelf->axi_top_32x32__DOT__write_burst_reg = vlSelf->axi_top_32x32__DOT__write_burst_next;
     if (vlSelf->axi_top_32x32__DOT__mem_rd_en) {
         vlSelf->axi_top_32x32__DOT__s_axi_rdata_reg 
-            = vlSelf->axi_top_32x32__DOT__mem1[(0x3ffffU 
-                                                & (vlSelf->axi_top_32x32__DOT__read_addr_reg 
-                                                   >> 2U))];
+            = vlSelf->axi_top_32x32__DOT__data_mem[
+            (0x3ffffU & (vlSelf->axi_top_32x32__DOT__read_addr_reg 
+                         >> 2U))];
     }
     vlSelf->axi_top_32x32__DOT__read_count_reg = vlSelf->axi_top_32x32__DOT__read_count_next;
     vlSelf->axi_top_32x32__DOT__write_count_reg = vlSelf->axi_top_32x32__DOT__write_count_next;
-    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
-         & (IData)(vlSelf->s_axi_wstrb))) {
-        __Vdlyvval__axi_top_32x32__DOT__mem1__v0 = 
-            (0xffU & vlSelf->s_axi_wdata);
-        __Vdlyvset__axi_top_32x32__DOT__mem1__v0 = 1U;
-        __Vdlyvlsb__axi_top_32x32__DOT__mem1__v0 = 0U;
-        __Vdlyvdim0__axi_top_32x32__DOT__mem1__v0 = 
-            (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
-                         >> 2U));
-    }
-    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
-         & ((IData)(vlSelf->s_axi_wstrb) >> 1U))) {
-        __Vdlyvval__axi_top_32x32__DOT__mem1__v1 = 
-            (0xffU & (vlSelf->s_axi_wdata >> 8U));
-        __Vdlyvset__axi_top_32x32__DOT__mem1__v1 = 1U;
-        __Vdlyvlsb__axi_top_32x32__DOT__mem1__v1 = 8U;
-        __Vdlyvdim0__axi_top_32x32__DOT__mem1__v1 = 
-            (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
-                         >> 2U));
-    }
-    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
-         & ((IData)(vlSelf->s_axi_wstrb) >> 2U))) {
-        __Vdlyvval__axi_top_32x32__DOT__mem1__v2 = 
-            (0xffU & (vlSelf->s_axi_wdata >> 0x10U));
-        __Vdlyvset__axi_top_32x32__DOT__mem1__v2 = 1U;
-        __Vdlyvlsb__axi_top_32x32__DOT__mem1__v2 = 0x10U;
-        __Vdlyvdim0__axi_top_32x32__DOT__mem1__v2 = 
-            (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
-                         >> 2U));
-    }
-    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
-         & ((IData)(vlSelf->s_axi_wstrb) >> 3U))) {
-        __Vdlyvval__axi_top_32x32__DOT__mem1__v3 = 
-            (vlSelf->s_axi_wdata >> 0x18U);
-        __Vdlyvset__axi_top_32x32__DOT__mem1__v3 = 1U;
-        __Vdlyvlsb__axi_top_32x32__DOT__mem1__v3 = 0x18U;
-        __Vdlyvdim0__axi_top_32x32__DOT__mem1__v3 = 
-            (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
-                         >> 2U));
-    }
     vlSelf->axi_top_32x32__DOT__s_axi_rvalid_reg = 
         ((~ (IData)(vlSelf->reset)) & (IData)(vlSelf->axi_top_32x32__DOT__s_axi_rvalid_next));
-    vlSelf->axi_top_32x32__DOT__read_state_reg = ((~ (IData)(vlSelf->reset)) 
-                                                  & (IData)(vlSelf->axi_top_32x32__DOT__read_state_next));
+    vlSelf->axi_top_32x32__DOT__read_state = ((~ (IData)(vlSelf->reset)) 
+                                              & (IData)(vlSelf->axi_top_32x32__DOT__read_state_next));
     vlSelf->axi_top_32x32__DOT__s_axi_bvalid_reg = 
         ((~ (IData)(vlSelf->reset)) & (IData)(vlSelf->axi_top_32x32__DOT__s_axi_bvalid_next));
     if (vlSelf->reset) {
-        vlSelf->axi_top_32x32__DOT__write_state_reg = 0U;
+        vlSelf->axi_top_32x32__DOT__write_state = 0U;
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element__DOT__io_outputC_REG = 0U;
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_1__DOT__io_outputC_REG = 0U;
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_2__DOT__io_outputC_REG = 0U;
@@ -840,20 +838,8 @@ VL_INLINE_OPT void Vaxi_sa_32x32___024root___sequent__TOP__2(Vaxi_sa_32x32___024
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_156__DOT__io_outputC_REG = 0U;
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_188__DOT__multiplyResult_multiplier__DOT__io_output_0_REG = 0U;
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_157__DOT__io_outputC_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_189__DOT__multiplyResult_multiplier__DOT__io_output_0_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_158__DOT__io_outputC_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_190__DOT__multiplyResult_multiplier__DOT__io_output_0_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_253__DOT__registerA_0 = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_222__DOT__registerA_0 = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_159__DOT__io_outputC_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_191__DOT__multiplyResult_multiplier__DOT__io_output_0_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_416__DOT__multiplyResult_multiplier__DOT__io_output_0_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_384__DOT__io_outputC_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_417__DOT__multiplyResult_multiplier__DOT__io_output_0_REG = 0U;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_385__DOT__io_outputC_REG = 0U;
     } else {
-        vlSelf->axi_top_32x32__DOT__write_state_reg 
-            = vlSelf->axi_top_32x32__DOT__write_state_next;
+        vlSelf->axi_top_32x32__DOT__write_state = vlSelf->axi_top_32x32__DOT__write_state_next;
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element__DOT__io_outputC_REG 
             = vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element__DOT__multiplyResult_multiplier__DOT__io_output_0_REG;
         vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_1__DOT__io_outputC_REG 
@@ -7192,100 +7178,6 @@ VL_INLINE_OPT void Vaxi_sa_32x32___024root___sequent__TOP__2(Vaxi_sa_32x32___024
                            + ((0x80000U & (vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_157__io_inputC 
                                            << 1U)) 
                               | vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_157__io_inputC)));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_189__DOT__multiplyResult_multiplier__DOT__io_output_0_REG 
-            = (0xffffU & (((0xff00U & ((- (IData)((1U 
-                                                   & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_188__DOT__registerA_0) 
-                                                      >> 7U)))) 
-                                       << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_188__DOT__registerA_0)) 
-                          * ((0xff00U & ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_189__DOT__registerB_0) 
-                                                        >> 7U)))) 
-                                         << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_189__DOT__registerB_0))));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_158__DOT__io_outputC_REG 
-            = (0xfffffU & (((0xf0000U & ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_158__DOT__multiplyResult_multiplier__DOT__io_output_0_REG) 
-                                                        >> 0xfU)))) 
-                                         << 0x10U)) 
-                            | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_158__DOT__multiplyResult_multiplier__DOT__io_output_0_REG)) 
-                           + ((0x80000U & (vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_158__io_inputC 
-                                           << 1U)) 
-                              | vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_158__io_inputC)));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_190__DOT__multiplyResult_multiplier__DOT__io_output_0_REG 
-            = (0xffffU & (((0xff00U & ((- (IData)((1U 
-                                                   & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_189__DOT__registerA_0) 
-                                                      >> 7U)))) 
-                                       << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_189__DOT__registerA_0)) 
-                          * ((0xff00U & ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_190__DOT__registerB_0) 
-                                                        >> 7U)))) 
-                                         << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_190__DOT__registerB_0))));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_253__DOT__registerA_0 
-            = vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_252__DOT__registerA_0;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_222__DOT__registerA_0 
-            = vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_221__DOT__registerA_0;
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_159__DOT__io_outputC_REG 
-            = (0xfffffU & (((0xf0000U & ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_159__DOT__multiplyResult_multiplier__DOT__io_output_0_REG) 
-                                                        >> 0xfU)))) 
-                                         << 0x10U)) 
-                            | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_159__DOT__multiplyResult_multiplier__DOT__io_output_0_REG)) 
-                           + ((0x80000U & (vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_159__io_inputC 
-                                           << 1U)) 
-                              | vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_159__io_inputC)));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_191__DOT__multiplyResult_multiplier__DOT__io_output_0_REG 
-            = (0xffffU & (((0xff00U & ((- (IData)((1U 
-                                                   & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_190__DOT__registerA_0) 
-                                                      >> 7U)))) 
-                                       << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_190__DOT__registerA_0)) 
-                          * ((0xff00U & ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_191__DOT__registerB_0) 
-                                                        >> 7U)))) 
-                                         << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_191__DOT__registerB_0))));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_416__DOT__multiplyResult_multiplier__DOT__io_output_0_REG 
-            = (0xffffU & (((0xff00U & ((- (IData)((1U 
-                                                   & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_13) 
-                                                      >> 7U)))) 
-                                       << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__preProcessorInputA__DOT__io_output_13_r_13)) 
-                          * ((0xff00U & ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_416__DOT__registerB_0) 
-                                                        >> 7U)))) 
-                                         << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_416__DOT__registerB_0))));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_384__DOT__io_outputC_REG 
-            = (0x1fffffU & (((0x1f0000U & ((- (IData)(
-                                                      (1U 
-                                                       & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_384__DOT__multiplyResult_multiplier__DOT__io_output_0_REG) 
-                                                          >> 0xfU)))) 
-                                           << 0x10U)) 
-                             | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_384__DOT__multiplyResult_multiplier__DOT__io_output_0_REG)) 
-                            + ((0x100000U & (vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_352__DOT__io_outputC_REG 
-                                             << 1U)) 
-                               | (0xfffffU & vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_352__DOT__io_outputC_REG))));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_417__DOT__multiplyResult_multiplier__DOT__io_output_0_REG 
-            = (0xffffU & (((0xff00U & ((- (IData)((1U 
-                                                   & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_416__DOT__registerA_0) 
-                                                      >> 7U)))) 
-                                       << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_416__DOT__registerA_0)) 
-                          * ((0xff00U & ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_417__DOT__registerB_0) 
-                                                        >> 7U)))) 
-                                         << 8U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_417__DOT__registerB_0))));
-        vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_385__DOT__io_outputC_REG 
-            = (0x1fffffU & (((0x1f0000U & ((- (IData)(
-                                                      (1U 
-                                                       & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_385__DOT__multiplyResult_multiplier__DOT__io_output_0_REG) 
-                                                          >> 0xfU)))) 
-                                           << 0x10U)) 
-                             | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_385__DOT__multiplyResult_multiplier__DOT__io_output_0_REG)) 
-                            + ((0x100000U & (vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_353__DOT__io_outputC_REG 
-                                             << 1U)) 
-                               | (0xfffffU & vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element_353__DOT__io_outputC_REG))));
     }
     vlSelf->axi_top_32x32__DOT__s_axi_arready_reg = 
         ((~ (IData)(vlSelf->reset)) & (IData)(vlSelf->axi_top_32x32__DOT__s_axi_arready_next));
@@ -7293,45 +7185,119 @@ VL_INLINE_OPT void Vaxi_sa_32x32___024root___sequent__TOP__2(Vaxi_sa_32x32___024
         ((~ (IData)(vlSelf->reset)) & (IData)(vlSelf->axi_top_32x32__DOT__s_axi_awready_next));
     vlSelf->axi_top_32x32__DOT__s_axi_wready_reg = 
         ((~ (IData)(vlSelf->reset)) & (IData)(vlSelf->axi_top_32x32__DOT__s_axi_wready_next));
-    if (__Vdlyvset__axi_top_32x32__DOT__mem1__v0) {
-        vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v0] 
-            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v0))) 
-                & vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v0]) 
-               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__mem1__v0) 
-                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v0))));
+    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
+         & (IData)(vlSelf->s_axi_wstrb))) {
+        vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0 
+            = (0xffU & vlSelf->s_axi_wdata);
+        if ((0x40000U >= (0x7ffffU & ((IData)(1U) + 
+                                      (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                   >> 2U)))))) {
+            __Vdlyvval__axi_top_32x32__DOT__data_mem__v0 
+                = vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0;
+            __Vdlyvset__axi_top_32x32__DOT__data_mem__v0 = 1U;
+            __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v0 = 0U;
+            __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v0 
+                = (0x7ffffU & ((IData)(1U) + (0x3ffffU 
+                                              & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                 >> 2U))));
+        }
     }
-    if (__Vdlyvset__axi_top_32x32__DOT__mem1__v1) {
-        vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v1] 
-            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v1))) 
-                & vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v1]) 
-               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__mem1__v1) 
-                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v1))));
+    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
+         & ((IData)(vlSelf->s_axi_wstrb) >> 1U))) {
+        vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0 
+            = (0xffU & (vlSelf->s_axi_wdata >> 8U));
+        if ((0x40000U >= (0x7ffffU & ((IData)(1U) + 
+                                      (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                   >> 2U)))))) {
+            __Vdlyvval__axi_top_32x32__DOT__data_mem__v1 
+                = vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0;
+            __Vdlyvset__axi_top_32x32__DOT__data_mem__v1 = 1U;
+            __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v1 = 8U;
+            __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v1 
+                = (0x7ffffU & ((IData)(1U) + (0x3ffffU 
+                                              & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                 >> 2U))));
+        }
     }
-    if (__Vdlyvset__axi_top_32x32__DOT__mem1__v2) {
-        vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v2] 
-            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v2))) 
-                & vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v2]) 
-               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__mem1__v2) 
-                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v2))));
+    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
+         & ((IData)(vlSelf->s_axi_wstrb) >> 2U))) {
+        vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0 
+            = (0xffU & (vlSelf->s_axi_wdata >> 0x10U));
+        if ((0x40000U >= (0x7ffffU & ((IData)(1U) + 
+                                      (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                   >> 2U)))))) {
+            __Vdlyvval__axi_top_32x32__DOT__data_mem__v2 
+                = vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0;
+            __Vdlyvset__axi_top_32x32__DOT__data_mem__v2 = 1U;
+            __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v2 = 0x10U;
+            __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v2 
+                = (0x7ffffU & ((IData)(1U) + (0x3ffffU 
+                                              & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                 >> 2U))));
+        }
     }
-    if (__Vdlyvset__axi_top_32x32__DOT__mem1__v3) {
-        vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v3] 
-            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v3))) 
-                & vlSelf->axi_top_32x32__DOT__mem1[__Vdlyvdim0__axi_top_32x32__DOT__mem1__v3]) 
-               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__mem1__v3) 
-                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__mem1__v3))));
+    if (((IData)(vlSelf->axi_top_32x32__DOT__mem_wr_en) 
+         & ((IData)(vlSelf->s_axi_wstrb) >> 3U))) {
+        vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0 
+            = (vlSelf->s_axi_wdata >> 0x18U);
+        if ((0x40000U >= (0x7ffffU & ((IData)(1U) + 
+                                      (0x3ffffU & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                   >> 2U)))))) {
+            __Vdlyvval__axi_top_32x32__DOT__data_mem__v3 
+                = vlSelf->axi_top_32x32__DOT____Vlvbound_h680fd9cf__0;
+            __Vdlyvset__axi_top_32x32__DOT__data_mem__v3 = 1U;
+            __Vdlyvlsb__axi_top_32x32__DOT__data_mem__v3 = 0x18U;
+            __Vdlyvdim0__axi_top_32x32__DOT__data_mem__v3 
+                = (0x7ffffU & ((IData)(1U) + (0x3ffffU 
+                                              & (vlSelf->axi_top_32x32__DOT__write_addr_reg 
+                                                 >> 2U))));
+        }
     }
+    __Vdlyvval__axi_top_32x32__DOT__data_mem__v4 = vlSelf->axi_top_32x32__DOT__current_state;
+    if (__Vdlyvset__axi_top_32x32__DOT__data_mem__v0) {
+        vlSelf->axi_top_32x32__DOT__data_mem[__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v0] 
+            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v0))) 
+                & vlSelf->axi_top_32x32__DOT__data_mem
+                [__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v0]) 
+               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__data_mem__v0) 
+                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v0))));
+    }
+    if (__Vdlyvset__axi_top_32x32__DOT__data_mem__v1) {
+        vlSelf->axi_top_32x32__DOT__data_mem[__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v1] 
+            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v1))) 
+                & vlSelf->axi_top_32x32__DOT__data_mem
+                [__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v1]) 
+               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__data_mem__v1) 
+                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v1))));
+    }
+    if (__Vdlyvset__axi_top_32x32__DOT__data_mem__v2) {
+        vlSelf->axi_top_32x32__DOT__data_mem[__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v2] 
+            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v2))) 
+                & vlSelf->axi_top_32x32__DOT__data_mem
+                [__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v2]) 
+               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__data_mem__v2) 
+                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v2))));
+    }
+    if (__Vdlyvset__axi_top_32x32__DOT__data_mem__v3) {
+        vlSelf->axi_top_32x32__DOT__data_mem[__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v3] 
+            = (((~ ((IData)(0xffU) << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v3))) 
+                & vlSelf->axi_top_32x32__DOT__data_mem
+                [__Vdlyvdim0__axi_top_32x32__DOT__data_mem__v3]) 
+               | (0xffffffffULL & ((IData)(__Vdlyvval__axi_top_32x32__DOT__data_mem__v3) 
+                                   << (IData)(__Vdlyvlsb__axi_top_32x32__DOT__data_mem__v3))));
+    }
+    vlSelf->axi_top_32x32__DOT__data_mem[0U] = __Vdlyvval__axi_top_32x32__DOT__data_mem__v4;
     vlSelf->s_axi_rlast = vlSelf->axi_top_32x32__DOT__s_axi_rlast_reg;
     vlSelf->s_axi_rid = vlSelf->axi_top_32x32__DOT__s_axi_rid_reg;
     vlSelf->s_axi_bid = vlSelf->axi_top_32x32__DOT__s_axi_bid_reg;
     vlSelf->s_axi_rdata = vlSelf->axi_top_32x32__DOT__s_axi_rdata_reg;
     vlSelf->axi_top_32x32__DOT__read_addr_reg = vlSelf->axi_top_32x32__DOT__read_addr_next;
-    vlSelf->axi_top_32x32__DOT__write_addr_reg = vlSelf->axi_top_32x32__DOT__write_addr_next;
     vlSelf->s_axi_rvalid = vlSelf->axi_top_32x32__DOT__s_axi_rvalid_reg;
     vlSelf->s_axi_bvalid = vlSelf->axi_top_32x32__DOT__s_axi_bvalid_reg;
     vlSelf->s_axi_arready = vlSelf->axi_top_32x32__DOT__s_axi_arready_reg;
     vlSelf->s_axi_awready = vlSelf->axi_top_32x32__DOT__s_axi_awready_reg;
     vlSelf->s_axi_wready = vlSelf->axi_top_32x32__DOT__s_axi_wready_reg;
+    vlSelf->axi_top_32x32__DOT__write_addr_reg = vlSelf->axi_top_32x32__DOT__write_addr_next;
     vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT____Vcellinp__processing_element_32__io_inputC 
         = ((0x10000U & ((IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element__DOT__io_outputC_REG) 
                         << 1U)) | (IData)(vlSelf->axi_top_32x32__DOT__uut__DOT__systolicTensorArray__DOT__processing_element__DOT__io_outputC_REG));

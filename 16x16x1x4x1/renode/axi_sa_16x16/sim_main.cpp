@@ -89,6 +89,39 @@ RenodeAgent *Init() {
     return axi_sa_16x16;
 }
 
+extern "C" uint32_t verilator_read_register(uint32_t addr) {
+    if (!axi_sa_16x16) {
+        printf("Error: RenodeAgent not initialized!\n");
+        return 0;
+    }
+
+    // Read 요청 수행
+    axi_sa_16x16->readFromBus(4, addr);
+
+    // 응답 수신
+    Protocol* response = axi_sa_16x16->receive();
+    if (response->actionId != readRequest) {
+        printf("Error: Invalid response from RenodeAgent!\n");
+        delete response;
+        return 0;
+    }
+
+    uint32_t value = response->value;
+    delete response;
+    return value;
+}
+
+extern "C" void verilator_write_register(uint32_t addr, uint32_t data) {
+    if (!axi_sa_16x16) {
+        printf("Error: RenodeAgent not initialized!\n");
+        return;
+    }
+
+    // Write 요청 수행
+    axi_sa_16x16->writeToBus(4, addr, data);
+}
+
+
 int main(int argc, char **argv, char **env) {
     if(argc < 3) {
         printf("Usage: %s {receiverPort} {senderPort} [{address}]\n", argv[0]);
