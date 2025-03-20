@@ -18,7 +18,7 @@ gtkwave *.vcd
 
 
 #### Running libVtop.so
-Run in `renode/axi_sa_*/` -> `renode-verilator-integration`
+Run in `renode/axi_sa_*/` -> `renode-verilator-integration/samples/`
 ```bash
 mkdir build && cd build
 SRC_PATH=$(realpath ..)
@@ -31,13 +31,13 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 
 
 #### Running Renode 
-Run in `renode/` -> `renode-dpi-examples`
+Run in `renode/` -> `renode-dpi-examples/samples/`
 ```bash
 ${RENODE_PATH}/renode platform_basic.resc
 ```
 
 #### Running Springbok
-If you revise the `samples/util/util.c`, -> in `iree-rv32-springbok-legacy`
+If you revise the `samples/util/util.c`, -> in `iree-rv32-springbok-legacy/`
 ```bash
 ./build_riscv.sh
 ```
