@@ -3,24 +3,24 @@
 #### Running Simulation
 Run in `model/sim/axi/iverilog/`
 ```bash
-$ ./run.sh
+./run.sh
 ```
 If you want to clean the simulation files,
 ```bash
-$ ./clean.sh
+./clean.sh
 ```
 If you want to see the timing diagram, 
 ```bash
-$ gtkwave *.vcd
+gtkwave *.vcd
 ```
 
 
 #### Running libVtop.so
 Run in `renode/axi_sa_*/`
 ```bash
-$ mkdir build && cd build
-$ SRC_PATH=$(realpath ..)
-$ cmake -DCMAKE_BUILD_TYPE=Release \
+mkdir build && cd build
+SRC_PATH=$(realpath ..)
+cmake -DCMAKE_BUILD_TYPE=Release \
             -DUSER_RENODE_DIR=$RENODE_PH  \
             ${VERILATOR_PATH:+"-DUSER_VERILATOR_DIR=$VERILATOR_PATH"}  \
             "$SRC_PATH"  \
@@ -31,18 +31,18 @@ $ cmake -DCMAKE_BUILD_TYPE=Release \
 #### Running Renode
 Run in `renode/`
 ```bash
-$ ${RENODE_PATH}/renode platform_basic.resc
+${RENODE_PATH}/renode platform_basic.resc
 ```
 
 #### Running Springbok
 If you revise the `sampels/util/util.c`,
 ```bash
-$ ./build_riscv.sh
+./build_riscv.sh
 ```
 
 After that,
 ```bash
-$ ./sim_springbok_*.sh $ELF_PATH
+./sim_springbok_*.sh $ELF_PATH
 ```
 
 
