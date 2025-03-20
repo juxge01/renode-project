@@ -1,6 +1,6 @@
 ## Integrate systolic array - Renode
 
-Using `renode-dpi-examples`, 'renode-verilator-integration', `iree-rv32-springbok-legacy`
+Using `renode-dpi-examples`, `renode-verilator-integration`, `iree-rv32-springbok-legacy`
 
 #### Running Simulation
 Run in `model/sim/axi/iverilog/`
