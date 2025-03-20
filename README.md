@@ -3,22 +3,22 @@
 #### Running Simulation
 Run in `model/sim/axi/iverilog`
 ```bash
-$      ./run.sh
+$ ./run.sh
 ```
 If you want to clean the simulation files,
 ```bash
-$      ./clean.sh
+$ ./clean.sh
 ```
 If you want to see the timing diagram, 
 ```bash
-$      gtkwave *.vcd
+$ gtkwave *.vcd
 ```
 
 #### Running libVtop.so
 ```bash
-$      mkdir build && cd build
-$      SRC_PATH=$(realpath ..)
-$      cmake -DCMAKE_BUILD_TYPE=Release \
+$ mkdir build && cd build
+$ SRC_PATH=$(realpath ..)
+$ cmake -DCMAKE_BUILD_TYPE=Release \
             -DUSER_RENODE_DIR=$RENODE_PH  \
             ${VERILATOR_PATH:+"-DUSER_VERILATOR_DIR=$VERILATOR_PATH"}  \
             "$SRC_PATH"  \
