@@ -1,5 +1,11 @@
 # Integrate systolic array - Renode
 
+## Running Simulation
+Run in `model/sim/axi` or `model/sim/basic`
+```bash
+
+```
+
 ## Running libVtop.so
 ```bash
 mkdir build && cd build
@@ -9,6 +15,11 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       ${VERILATOR_PATH:+"-DUSER_VERILATOR_DIR=$VERILATOR_PATH"}  \
       "$SRC_PATH"  \
       -DLIBOPENLIBM=/home/jueun/park/renode/baremetal-riscv-renode/renode-verilator-integration/lib/libopenlibm-Linux-x86_64.a
+```
+
+## Running Renode
+```bash
+mkdir 
 ```
 
 ## Running Springbok
