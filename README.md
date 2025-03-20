@@ -1,6 +1,5 @@
 ## Integrate systolic array - Renode
 
-> Note
 > Using `renode-dpi-examples`, `renode-verilator-integration`, `iree-rv32-springbok-legacy`
 
 #### Running Simulation
