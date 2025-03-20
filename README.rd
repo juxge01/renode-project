@@ -1,4 +1,1 @@
-### Connect systolic_array
-
-
-
+### Integrate systolic array - Renode
