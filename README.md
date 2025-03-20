@@ -14,6 +14,7 @@ If you want to see the timing diagram,
 $ gtkwave *.vcd
 ```
 
+
 #### Running libVtop.so
 Run in `renode/axi_sa_*/`
 ```bash
@@ -25,6 +26,7 @@ $ cmake -DCMAKE_BUILD_TYPE=Release \
             "$SRC_PATH"  \
             -DLIBOPENLIBM=/home/jueun/park/renode/baremetal-riscv-renode/renode-verilator-integration/lib/libopenlibm-Linux-x86_64.a
 ```
+
 
 #### Running Renode
 Run in `renode/`
@@ -42,6 +44,7 @@ After that,
 ```bash
 $ ./sim_springbok_*.sh $ELF_PATH
 ```
+
 
 #### Additional prerequisites
 Once you have Python3 and `pip`, install additional modules:
