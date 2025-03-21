@@ -1,4 +1,4 @@
-# renode-ingegration-project
+# renode-integration-project
 
 Copyright (c) 2023 [Antmicro](https://www.antmicro.com)
 
