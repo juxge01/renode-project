@@ -1,0 +1,112 @@
+using sysbus
+mach create
+
+machine LoadPlatformDescription $ORIGIN/platform_basic.repl
+
+showAnalyzer uart
+logLevel 0
+
+$bin?=@/home/jueun/park/IREE/iree-rv32-springbok-legacy/build/build-riscv/samples/ecg_small/ecg_small_fp32_emitc_static
+
+macro reset
+"""
+    sysbus LoadELF $bin
+    sysbus.cpu IsHalted false
+"""
+runMacro $reset
+
+echo "[[32x32 systolic array]]"
+
+echo "Compute Test"
+sysbus.sa_32x32 WriteDoubleWord 0x33000000 0x1
+sysbus.sa_32x32 WriteDoubleWord 0x33000004 0x2
+sysbus.sa_32x32 WriteDoubleWord 0x33000008 0x3
+sysbus.sa_32x32 WriteDoubleWord 0x3300000C 0x4
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000010 0x5
+sysbus.sa_32x32 WriteDoubleWord 0x33000014 0x6
+sysbus.sa_32x32 WriteDoubleWord 0x33000018 0x7
+sysbus.sa_32x32 WriteDoubleWord 0x3300001C 0x8
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000020 0x9
+sysbus.sa_32x32 WriteDoubleWord 0x33000024 0xA
+sysbus.sa_32x32 WriteDoubleWord 0x33000028 0xB
+sysbus.sa_32x32 WriteDoubleWord 0x3300002C 0xC
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000030 0xD
+sysbus.sa_32x32 WriteDoubleWord 0x33000034 0xE
+sysbus.sa_32x32 WriteDoubleWord 0x33000038 0xF
+sysbus.sa_32x32 WriteDoubleWord 0x3300003C 0x10
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000040 0x11
+sysbus.sa_32x32 WriteDoubleWord 0x33000044 0x12
+sysbus.sa_32x32 WriteDoubleWord 0x33000048 0x13
+sysbus.sa_32x32 WriteDoubleWord 0x3300004C 0x14
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000050 0x15
+sysbus.sa_32x32 WriteDoubleWord 0x33000054 0x16
+sysbus.sa_32x32 WriteDoubleWord 0x33000058 0x17
+sysbus.sa_32x32 WriteDoubleWord 0x3300005C 0x18
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000060 0x19
+sysbus.sa_32x32 WriteDoubleWord 0x33000064 0x1A
+sysbus.sa_32x32 WriteDoubleWord 0x33000068 0x1B
+sysbus.sa_32x32 WriteDoubleWord 0x3300006C 0x1C
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000070 0x1D
+sysbus.sa_32x32 WriteDoubleWord 0x33000074 0x1E
+sysbus.sa_32x32 WriteDoubleWord 0x33000078 0x1F
+sysbus.sa_32x32 WriteDoubleWord 0x3300007C 0x20
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000080 0x21
+sysbus.sa_32x32 WriteDoubleWord 0x33000084 0x22
+sysbus.sa_32x32 WriteDoubleWord 0x33000088 0x23
+sysbus.sa_32x32 WriteDoubleWord 0x3300008C 0x24
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000090 0x25
+sysbus.sa_32x32 WriteDoubleWord 0x33000094 0x26
+sysbus.sa_32x32 WriteDoubleWord 0x33000098 0x27
+sysbus.sa_32x32 WriteDoubleWord 0x3300009C 0x28
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000100 0x29
+sysbus.sa_32x32 WriteDoubleWord 0x33000104 0x2A
+sysbus.sa_32x32 WriteDoubleWord 0x33000108 0x2B
+sysbus.sa_32x32 WriteDoubleWord 0x3300010C 0x2C
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000110 0x2D
+sysbus.sa_32x32 WriteDoubleWord 0x33000114 0x2E
+sysbus.sa_32x32 WriteDoubleWord 0x33000118 0x2F
+sysbus.sa_32x32 WriteDoubleWord 0x3300011C 0x30
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000120 0x31
+sysbus.sa_32x32 WriteDoubleWord 0x33000124 0x32
+sysbus.sa_32x32 WriteDoubleWord 0x33000128 0x33
+sysbus.sa_32x32 WriteDoubleWord 0x3300012C 0x34
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000130 0x35
+sysbus.sa_32x32 WriteDoubleWord 0x33000134 0x36
+sysbus.sa_32x32 WriteDoubleWord 0x33000138 0x37
+sysbus.sa_32x32 WriteDoubleWord 0x3300013C 0x38
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000140 0x39
+sysbus.sa_32x32 WriteDoubleWord 0x33000144 0x3A
+sysbus.sa_32x32 WriteDoubleWord 0x33000148 0x3B
+sysbus.sa_32x32 WriteDoubleWord 0x3300014C 0x3C
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000150 0x3D
+sysbus.sa_32x32 WriteDoubleWord 0x33000154 0x3E
+sysbus.sa_32x32 WriteDoubleWord 0x33000158 0x3F
+sysbus.sa_32x32 WriteDoubleWord 0x3300015C 0x40
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000160 0x41
+sysbus.sa_32x32 WriteDoubleWord 0x33000164 0x42
+sysbus.sa_32x32 WriteDoubleWord 0x33000168 0x43
+sysbus.sa_32x32 WriteDoubleWord 0x3300016C 0x44
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000170 0x45
+sysbus.sa_32x32 WriteDoubleWord 0x33000174 0x46
+sysbus.sa_32x32 WriteDoubleWord 0x33000178 0x47
+sysbus.sa_32x32 WriteDoubleWord 0x3300017C 0x48
+
+sysbus.sa_32x32 WriteDoubleWord 0x33000180 0x49
+sysbus.sa_32x32 WriteDoubleWord 0x33000184 0x4A

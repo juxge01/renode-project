@@ -1,0 +1,22 @@
+mach create "springbok"
+
+EnsureTypeIsLoaded "Antmicro.Renode.Peripherals.CPU.RiscV32"
+include @/home/jueun/park/IREE/iree-rv32-springbok-legacy/sim/config/infrastructure/SpringbokRiscV32.cs
+
+machine LoadPlatformDescription @sim/config/platforms/springbok_sa16_axi.repl
+
+# logLevel 2
+
+showAnalyzer sysbus.uart
+
+$bin?=@build/build-riscv/samples/simple_vec_mul/simple_int_vec_mul_emitc_static
+
+macro reset
+"""
+    sysbus LoadELF $bin
+    sysbus.cpu2 IsHalted true
+"""
+runMacro $reset
+
+echo "AXI SA16 Model loaded and ready for testing."
+
