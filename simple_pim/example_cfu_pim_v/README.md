@@ -1,5 +1,3 @@
-### Read, Write
-
 #### Setting
 ``` bash
 git clone https://github.com/google/CFU-Playground.git
