@@ -1,0 +1,12 @@
+# DESCRIPTION: Verilator output: Timestamp data for --skip-identical.  Delete at will.
+C "--compiler gcc --prefix Vcfu --Mdir /home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir --make cmake --cc -y /home/jueun/park/CFU-Playground/proj/example_cfu_pim_v -Wno-WIDTH -Wno-CASEINCOMPLETE -Wno-CASEOVERLAP /home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/cfu.v"
+T      2123 39351470  1726736534   889271241  1726736534   889271241 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu.cmake"
+T    107905 39351523  1726736534   889271241  1726736534   889271241 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu.cpp"
+T      5953 39351467  1726736534   887271227  1726736534   887271227 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu.h"
+T     53613 39351468  1726736534   888271234  1726736534   888271234 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu__Slow.cpp"
+T       529 39351465  1726736534   887271227  1726736534   887271227 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu__Syms.cpp"
+T       773 39351466  1726736534   887271227  1726736534   887271227 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu__Syms.h"
+T       893 39351471  1726736534   889271241  1726736534   889271241 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu__ver.d"
+T         0        0  1726736534   889271241  1726736534   889271241 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/build/renode/CMakeFiles/libVtop.dir/Vcfu.dir/Vcfu__verFiles.dat"
+S      4547 37775251  1726735317   622321465  1726735317   622321465 "/home/jueun/park/CFU-Playground/proj/example_cfu_pim_v/cfu.v"
+S   7892640 42616881  1712047843   207910760  1598506306           0 "/usr/bin/verilator_bin"

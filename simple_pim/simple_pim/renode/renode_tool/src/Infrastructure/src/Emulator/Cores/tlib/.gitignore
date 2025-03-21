@@ -1,0 +1,7 @@
+bin/
+obj/
+build/
+.cache/
+tags
+*.swp
+compile_commands.json

@@ -1,0 +1,1 @@
+/usr/bin/verilator_bin;--compiler;gcc;--prefix;Vpim_model;--Mdir;/home/jueun/park/renode/baremetal-riscv-renode/renode-verilator-integration/samples/cfu_test/build_test/CMakeFiles/libVtop.dir/Vpim_model.dir;--make;cmake;--cc;-Wno-WIDTH;pim_model.v

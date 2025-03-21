@@ -1,0 +1,1 @@
+/home/jueun/park/build/verilator_428/bin/verilator_bin;--compiler;gcc;--prefix;Vaxi_pim;--Mdir;/home/jueun/park/renode/renode-verilator-integration-master/samples/pim/build/CMakeFiles/Vtop.dir/Vaxi_pim.dir;--make;cmake;--Wno-WIDTH;--Wno-CASEINCOMPLETE;--cc;axi_pim.v

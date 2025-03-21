@@ -1,0 +1,218 @@
+﻿<#
+//
+// Copyright (c) 2010-2024 Antmicro
+// Copyright (c) 2011-2015 Realtime Embedded
+//
+// This file is licensed under the MIT License.
+// Full license text is available in 'licenses/MIT.txt'.
+//
+#>
+<#@ template language="C#v3.5" debug="True"#>
+<#@ import namespace="System.Collections.Generic" #>
+<#
+    Dictionary<string, string> types = new Dictionary<string, string>();
+    types.Add("byte", "Byte");
+    types.Add("ushort", "Word");
+    types.Add("uint", "DoubleWord");
+    types.Add("ulong", "QuadWord");
+#>
+/********************************************************
+*
+* Warning!
+* This file was generated automatically.
+* Please do not edit. Changes should be made in the
+* appropriate *.tt file.
+*
+*/
+
+using System;
+using Antmicro.Renode.Core;
+using Antmicro.Renode.Exceptions;
+using Antmicro.Renode.Logging;
+using Antmicro.Renode.Peripherals.Bus.Wrappers;
+using Antmicro.Renode.Peripherals.CPU;
+
+using Range = Antmicro.Renode.Core.Range;
+
+namespace Antmicro.Renode.Peripherals.Bus
+{
+    public partial class SystemBus
+    {
+<#
+    foreach(var entry in types)
+    {
+        var type = entry.Key;
+        var name = entry.Value;
+#>
+        public <#= type #> Read<#= name #>(ulong address, ICPU context = null)
+        {
+            var accessWidth = SysbusAccessWidth.<#=name#>;
+            if(IsAddressRangeLocked(address.By((ulong)accessWidth)))
+            {
+                this.Log(LogLevel.Warning, "Tried to read {0} bytes at 0x{1:X} which is inside a locked address range, returning 0",
+                    (uint)accessWidth, address);
+                return 0;
+            }
+
+            using(SetLocalContext(context))
+            {
+                ulong startAddress, endAddress;
+
+                var accessMethods = globalPeripherals.FindAccessMethods(address, out startAddress, out endAddress);
+                if(accessMethods == null)
+                {
+                    if(context != null)
+                    {
+                        accessMethods = cpuLocalPeripherals[context].FindAccessMethods(address, out startAddress, out endAddress);
+                    }
+                    else if(TryGetCurrentCPU(out var currentCPU))
+                    {
+                        accessMethods = cpuLocalPeripherals[currentCPU].FindAccessMethods(address, out startAddress, out endAddress);
+                    }
+                }
+                if(accessMethods == null)
+                {
+                    return (<#= type #>)ReportNonExistingRead(address, accessWidth);
+                }
+                if(!IsPeripheralEnabled(accessMethods.Peripheral))
+                {
+                    this.Log(LogLevel.Warning, "Tried to read a locked peripheral: {0}. Address 0x{1:X}.", accessMethods.Peripheral, address);
+                    return 0;
+                }
+                var lockTaken = false;
+                try
+                {
+                    if(!accessMethods.Lock.IsHeldByCurrentThread)
+                    {
+                        accessMethods.Lock.Enter(ref lockTaken);
+                    }
+                    if(accessMethods.SetAbsoluteAddress != null)
+                    {
+                        accessMethods.SetAbsoluteAddress(address);
+                    }
+                    return accessMethods.Read<#=name#>(checked((long)(address - startAddress)));
+                }
+                finally
+                {
+                    if(lockTaken)
+                    {
+                        accessMethods.Lock.Exit();
+                    }
+                }
+            }
+        }
+
+        public void Write<#=name#>(ulong address, <#=type#> value, ICPU context = null)
+        {
+            var accessWidth = SysbusAccessWidth.<#=name#>;
+            if(IsAddressRangeLocked(address.By((ulong)accessWidth)))
+            {
+                this.Log(LogLevel.Warning, "Tried to write {0} bytes (0x{1:X}) at 0x{2:X} which is inside a locked address range, write ignored",
+                    (uint)accessWidth, value, address);
+                return;
+            }
+
+            using(SetLocalContext(context))
+            {
+                ulong startAddress, endAddress;
+
+                var accessMethods = globalPeripherals.FindAccessMethods(address, out startAddress, out endAddress);
+                if(accessMethods == null)
+                {
+                    if(context != null)
+                    {
+                        accessMethods = cpuLocalPeripherals[context].FindAccessMethods(address, out startAddress, out endAddress);
+                    }
+                    else if(TryGetCurrentCPU(out var currentCPU))
+                    {
+                        accessMethods = cpuLocalPeripherals[currentCPU].FindAccessMethods(address, out startAddress, out endAddress);
+                    }
+                }
+                if(accessMethods == null)
+                {
+                    ReportNonExistingWrite(address, value, accessWidth);
+                    return;
+                }
+                if(!IsPeripheralEnabled(accessMethods.Peripheral))
+                {
+                    this.Log(LogLevel.Warning, "Tried to write a locked peripheral: {0}. Address 0x{1:X}, value 0x{2:X}", accessMethods.Peripheral, address, value);
+                    return;
+                }
+
+                var lockTaken = false;
+                try
+                {
+                    if(!accessMethods.Lock.IsHeldByCurrentThread)
+                    {
+                        accessMethods.Lock.Enter(ref lockTaken);
+                    }
+                    if(accessMethods.SetAbsoluteAddress != null)
+                    {
+                        accessMethods.SetAbsoluteAddress(address);
+                    }
+                    accessMethods.Write<#=name#>(checked((long)(address - startAddress)), value);
+                }
+                finally
+                {
+                    if(lockTaken)
+                    {
+                        accessMethods.Lock.Exit();
+                    }
+                }
+            }
+        }
+
+<# }
+#>
+<#
+    foreach(var operation in new [] { "Read", "Write" })
+    {
+        var when = operation == "Read" ? "After" : "Before";
+        var actionOrFunc = operation == "Read" ? "Func" : "Action";
+#>
+        public void ClearHook<#=when#>Peripheral<#=operation#><T>(IBusPeripheral peripheral)
+        {
+            SetHook<#=when#>Peripheral<#=operation#><T>(peripheral, null);
+        }
+
+        public void SetHook<#=when#>Peripheral<#=operation#><T>(IBusPeripheral peripheral, Func<T, long, T> hook, Range? subrange = null)
+        {
+            if(!Machine.IsRegistered(peripheral))
+            {
+                throw new RecoverableException(string.Format("Cannot set hook on peripheral {0}, it is not registered.", peripheral));
+            }
+            var type = typeof(T);
+<#
+        foreach(var entry in types)
+        {
+            var type = entry.Key;
+            var name = entry.Value;
+#>
+            if(type == typeof(<#=type#>))
+            {
+                foreach(var peripherals in allPeripherals)
+                {
+                    peripherals.VisitAccessMethods(peripheral, pam =>
+                    {
+                        if(pam.<#=operation#><#=name#>.Target is <#=operation#>HookWrapper<<#=type#>>)
+                        {
+                            pam.<#=operation#><#=name#> = new BusAccess.<#=name#><#=operation#>Method(((<#=operation#>HookWrapper<<#=type#>>)pam.<#=operation#><#=name#>.Target).OriginalMethod);
+                        }
+                        if(hook != null)
+                        {
+                            pam.<#=operation#><#=name#> = new BusAccess.<#=name#><#=operation#>Method(new <#=operation#>HookWrapper<<#=type#>>(peripheral, new <#=actionOrFunc#><long, <#=type#>>(pam.<#=operation#><#=name#>), (Func<<#=type#>, long, <#=type#>>)(object)hook, subrange).<#=operation#>);
+                        }
+                        return pam;
+                    });
+                }
+                return;
+            }
+<#
+        }
+#>
+        }
+<#
+    }
+#>
+    }
+}

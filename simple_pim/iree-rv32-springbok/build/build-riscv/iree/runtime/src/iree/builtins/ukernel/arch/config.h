@@ -1,0 +1,2 @@
+#define IREE_UK_POINTER_SIZE 4
+/* #undef IREE_UK_ARCH_ARM_64 */
